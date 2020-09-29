@@ -1,0 +1,222 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+  <title>CONTACT FORM</title>
+  <style>
+    .div1 {
+      font: normal 18px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
+      background-image: url('https://img.freepik.com/free-photo/contact-us-hand-businessman-holding-mobile-smartphone-with-mail-phone-email-icon_52701-38.jpg?size=626&ext=jpg');
+      color: #fff;
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding: 50px 0;
+    }
+
+    .div2 {
+      background-image: url('https://images.unsplash.com/photo-1580584126903-c17d41830450?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60');
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding-left: 400px;
+    }
+
+    .container {
+      width: 80%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .container * {
+      box-sizing: border-box;
+    }
+
+    .flex-outer,
+    .flex-inner {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .flex-outer {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .flex-outer li,
+    .flex-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .flex-inner {
+      padding: 0 8px;
+      justify-content: space-between;
+    }
+
+    .flex-outer>li:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    .flex-outer li label,
+    .flex-outer li p {
+      padding: 8px;
+      font-weight: 300;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .flex-outer>li>label,
+    .flex-outer li p {
+      flex: 1 0 120px;
+      max-width: 220px;
+    }
+
+    .flex-outer>li>label+*,
+    .flex-inner {
+      flex: 1 0 220px;
+    }
+
+    .flex-outer li p {
+      margin: 0;
+    }
+
+    .flex-outer li input:not([type='checkbox']),
+    .flex-outer li textarea {
+      padding: 15px;
+      border: none;
+    }
+
+    .flex-outer li button {
+      margin-left: auto;
+      padding: 8px 16px;
+      border: none;
+      background: #333;
+      color: #f2f2f2;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      border-radius: 2px;
+    }
+
+    .flex-inner li {
+      width: 100px;
+    }
+
+    #contact td,
+    #contact th {
+      border: 1px solid rgb(221, 221, 221);
+      padding: 8px;
+      color:aqua;
+      background-color:rgba(51, 51, 51, 0.589);
+      font-size: 20px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+  </style>
+</head>
+
+<body>
+  <header style="color:green;text-align:center;font-size:25px">THANK YOU FOR VISITING OUR SITE</header>
+  <div class="div1">
+    <h1 style="color:aquamarine; font-size:60px; text-align:center">CONTACT FORM</h1>
+    <h2 style="color :gold;font-size:40px; text-align:center"><i>Kindly leave your details<br> for further
+        correspondence.</i></h2>
+    <div class="container">
+      <form>
+        <ul class="flex-outer">
+          <li>
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" placeholder="Enter your first name here">
+          </li>
+          <li>
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" placeholder="Enter your last name here">
+          </li>
+          <li>
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email here">
+          </li>
+          <li>
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" placeholder="Enter your phone here">
+          </li>
+          <li>
+            <label for="message">Message</label>
+            <textarea rows="6" id="message" placeholder="Enter your message here"></textarea>
+          </li>
+          <li>
+            <p>Age</p>
+            <ul class="flex-inner">
+              <li>
+                <input type="checkbox" id="twenty-to-twentynine">
+                <label for="twenty-to-twentynine">20-29</label>
+              </li>
+              <li>
+                <input type="checkbox" id="thirty-to-thirtynine">
+                <label for="thirty-to-thirtynine">30-39</label>
+              </li>
+              <li>
+                <input type="checkbox" id="fourty-to-fourtynine">
+                <label for="fourty-to-fourtynine">40-49</label>
+              </li>
+              <li>
+                <input type="checkbox" id="fifty-to-fiftynine">
+                <label for="fifty-to-fiftynine">50-59</label>
+              </li>
+              <li>
+                <input type="checkbox" id="sixty-to-sixtynine">
+                <label for="sixty-to-sixtynine">60-69</label>
+              </li>
+              <li>
+                <input type="checkbox" id="other">
+                <label for="other">Other</label>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <button type="submit">Submit</button>
+          </li>
+        </ul>
+      </form>
+      <br>
+      <table id = "contact">
+        <tr>
+          <td><i>CONTACT NUMBER</i></td>
+          <td>4444555566</td>
+        </tr>
+        <tr>
+          <td><i>EMAIL ID</i></td>
+          <td>abc@gmail.com</td>
+        </tr>
+        <tr>
+          <td><i>OFFICE ADDRESS</i></td>
+          <td>5th FLOOR, EMPIRE STATE BUILDING, NY,US</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="div2">
+    <br>
+    <h2 style="color:rgb(31, 255, 43);font-size:40px;font-family:Verdana, Geneva, Tahoma, sans-serif;text-align:center">
+      BLOOPERS</h2>
+    <pre
+      style="text-align:center;color:greenyellow;font-size:30px;font-family:'Times New Roman', Times, serif;background-color:#be7c7cc4">
+            <b>Here is a funny video for you
+              A Day Out with the Dynamic Duo
+      "THE ROCK" and Apple's AI-based Assitant "SIRI"
+                  CHECK IT OUT !!!!</b>
+    </pre>
+    <iframe width="600" height="400" src="https://www.youtube.com/embed/fhLGBY5_0zU">
+      CLICK TO PLAY</iframe>
+  </div>
+  <footer style="color:green;text-align:center;font-size:25px;">THIS SITE IS NOT FOR COMMERCIAL USE</footer>
+  <footer>
+    <p style="color:red;text-align:center;font-size:15px;"">
+    EXTRA / NEW TAGS USED : iframe tag, hr tag, footer tag, header tag, bold tag, pre tag and many more<br>
+    CSS IS USED FOR GRAPHICS AND PRESENTATION<br>
+    CSS used for changing backgrounds, font styles, font colours, adding grids, navigation bars etc.<br>
+    Please refer to the code via the INSPECT option for further details
+  </p></footer>
+</body>
+
+</html>

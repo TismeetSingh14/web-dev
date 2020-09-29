@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<style>
+    textarea {
+        height: 10px;
+        background-color: lightgray;
+    }
+</style>
+
+<body>
+
+    <button type='submit' id='btn' onclick="addNote()"> Add Note </button>
+    <div id='textArea'>
+        <br>
+        <br>
+        <hr>
+    </div>
+
+    <script>
+        var id = 1;
+
+        function addNote() {
+            try {
+                var textRegion = document.getElementById('textArea');
+                textRegion.innerHTML += ('Note ' + id);
+                textRegion.innerHTML += '<br>'
+                id += 1;
+                var newForm = document.createElement('textarea');
+                newForm.innerHTML = 'Testing';
+                newForm.addEventListener('mouseover', function(){newForm.style.color = 'red';})
+                newForm.addEventListener('mouseout', function(){newForm.style.color = 'blue';})
+                textRegion.appendChild(newForm);
+                
+            } catch {
+                document.write(err);
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

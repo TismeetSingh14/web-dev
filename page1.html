@@ -1,0 +1,700 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <title>Artificial Intelligence</title>
+    <style>
+        @keyframes imagechange {
+            0% {
+                background-image: url('https://www.jou.ufl.edu/wp-content/uploads/2019/12/Artificial-Intelligence-Graphic.jpg');
+            }
+
+            35% {
+                background-image: url('https://enterprisetalk.com/wp-content/uploads/2019/06/Human-Intelligence-Can-Fix-AI-Shortcomings-1.jpg');
+            }
+
+            70% {
+                background-image: url('https://images.idgesg.net/images/article/2018/10/ai_robotics_analytics_data-scientist_mathematics_equation-100777424-large.jpg');
+            }
+        }
+
+        .div1 {
+            background-image: url('https://www.jou.ufl.edu/wp-content/uploads/2019/12/Artificial-Intelligence-Graphic.jpg');
+            background-size: cover;
+            animation-name: imagechange;
+            animation-duration: 8s;
+            animation-iteration-count: infinite;
+        }
+
+        .div2 {
+            background-image: url('https://www.roboticsbusinessreview.com/wp-content/uploads/2018/09/iStock-AI-chip-1024x576.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: scroll;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .div3 {
+            background-image: url('https://28j4hc23gg8m166m6828ik29-wpengine.netdna-ssl.com/wp-content/uploads/2019/07/AdobeStock_179554804-300x169.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: scroll;
+        }
+
+        .div4 {
+            background-image: url('https://i.pinimg.com/originals/39/d9/4e/39d94e5505d69b572a1e1d23b293cfca.gif');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: scroll;
+        }
+
+        .div5 {
+            background-image: url('https://builtin.com/sites/default/files/styles/medium/public/2018-08/artificial-intelligence-companies.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: scroll;
+        }
+
+        .div6 {
+            background-image: url('https://images.unsplash.com/photo-1526378722484-bd91ca387e72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1191&q=80');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: scroll;
+        }
+
+        .div7 {
+            background-color: beige;
+        }
+
+        #list1 {
+            list-style-type: square;
+            margin: 0;
+            padding: 10;
+            font-size: 20px;
+            overflow: hidden;
+        }
+
+        #list1 :hover {
+            background-color: rgb(172, 163, 163)
+        }
+
+        #list2 {
+
+            color: rgba(255, 208, 0, 0.774);
+            padding-right: 300px;
+            padding-left: 10px;
+        }
+
+        #list2 dt {
+            color: rgb(255, 5, 193);
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 30px;
+        }
+
+        #list2 dd {
+            background-color: rgba(209, 209, 209, 0.39);
+            font-size: 20px;
+        }
+
+        #timeline {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            color: rgb(242, 242, 242);
+            width: 100%;
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-bottom: 30px;
+        }
+
+        #timeline td,
+        #timeline th {
+            border: 1px solid rgb(221, 221, 221);
+            padding: 8px;
+            font-size: 17px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        #timeline tr:nth-child(even) {
+            background-color: rgba(242, 242, 242, 0.281);
+        }
+
+        #timeline tr:hover {
+            background-color: rgb(172, 0, 252);
+        }
+
+        #timeline th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: Center;
+            background-color: rgba(170, 48, 194, 0.514);
+            color: rgb(255, 255, 255);
+        }
+
+        #nav {
+            background-image: url('https://i.gifer.com/J4o.gif');
+            list-style-type: none;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        #nav li {
+            display: inline-block;
+            font-size: 20px;
+            color: white;
+            padding: 20px;
+            font-style: bold;
+        }
+
+        #nav :hover {
+            background-color: rgb(6, 8, 175)
+        }
+
+        .col1 {
+            margin: 5px;
+            margin-left: 15px;
+            margin-right: 15px;
+            margin-bottom: 10px;
+            background-color: #ffc400;
+            background-image: linear-gradient(rgb(255, 196, 0));
+            color: black;
+            font-size: 20px;
+            text-align: center;
+            border: solid 2px;
+            border-color: black;
+            border-radius: 14px;
+            float: left;
+            width: 29%;
+            box-shadow: 4px 4px 4px 4px gray;
+            height: 500px;
+            padding: 10px;
+            transition: transform.4s;
+        }
+
+        .col1:hover {
+            transform: scale(1.15);
+        }
+
+        .col2 {
+            margin: 5px;
+            margin-left: 15px;
+            margin-right: 15px;
+            margin-bottom: 10px;
+            background-color: #f13d30;
+            background-image: linear-gradient(rgb(236, 45, 31));
+            color: black;
+            font-size: 20px;
+            text-align: center;
+            border: solid 2px;
+            border-color: black;
+            border-radius: 14px;
+            float: left;
+            width: 29%;
+            box-shadow: 4px 4px 4px 4px gray;
+            height: 500px;
+            padding: 10px;
+            transition: transform.4s;
+        }
+
+        .col2:hover {
+            transform: scale(1.15);
+        }
+
+        .col3 {
+            margin: 5px;
+            margin-left: 15px;
+            margin-right: 15px;
+            margin-bottom: 10px;
+            background-color: #48bfcf;
+            background-image: linear-gradient(rgba(88, 244, 255, 0.918));
+            color: black;
+            font-size: 20px;
+            text-align: center;
+            border: solid 2px;
+            border-color: black;
+            border-radius: 14px;
+            float: left;
+            width: 29%;
+            box-shadow: 4px 4px 4px 4px gray;
+            height: 500px;
+            padding: 10px;
+            transition: transform.4s;
+        }
+
+        .col3:hover {
+            transform: scale(1.15);
+        }
+
+        @media screen and (max-width:800px) {
+            .col1 {
+                width: 100%;
+            }
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        @media screen and (max-width:800px) {
+            .col3 {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body style="background-color : rgb(0, 0, 0)">
+    <div class="div1">
+        <h1 style="color: rgb(255, 174, 0); font-family : Algeri; font-size : 60px" align="center">Artificial
+            Intelligence</h1>
+        <h3 style="color: rgb(255, 60, 0); font-family : cursive; font-size : 40px" align="center">The Future Starts Now
+        </h3>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br>
+        <p style="color:aquamarine; text-align : center;font-size : 30px;">As the world grows into a new millenium, the
+            advent of technology is spreading across nations.<br>
+            Artificial Intelligence is the future of technological world as we know it.
+        </p>
+        <br><br>
+    </div>
+
+    <div class="div2">
+        <br>
+        <br>
+        <ul id="nav">
+            <li><b>Home</b></li>
+            <li><b>About Us</b></li>
+            <li><b>Information</b></li>
+            <li><b>Career in AI</b></li>
+            <li><b>Contact Us</b></li>
+            <li><b>Our Clients</b></li>
+            </li>
+            <li><b>Keyword Search</b> <input type=text></li>
+        </ul>
+        <br>
+        <h2 style="color:rgb(5, 255, 159); font-size : 60px; text-align : center">Introduction</h2>
+        <p
+            style="color:rgb(191, 255, 40); font-size :30px;background-color:rgba(140, 98, 255, 0.596);font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+            Artificial intelligence (AI), sometimes called machine intelligence, is intelligence demonstrated by
+            machines, unlike the natural intelligence displayed by humans and animals.
+            Leading AI textbooks define the field as the study of "intelligent agents": any device that perceives its
+            environment and takes actions that maximize its chance of successfully achieving its goals.
+            Colloquially, the term "artificial intelligence" is often used to describe machines (or computers) that
+            mimic "cognitive" functions that humans associate with the human mind, such as "learning" and "problem
+            solving".
+        </p>
+        <br><br><br>
+        <h2 style="color:rgb(255, 5, 193); font-size : 40px; text-align : left"> Table Of Contents</h2>
+        <ul id="list1" type style="list-style-type:square;">
+            <hr>
+            <li style="color : rgb(255, 115, 0)"><b>TIMELINE OF AI</b></li><br>
+            <li style="color : rgb(255, 217, 0)"><b>HOW AI WORKS?</b></li><br>
+            <li style="color : rgb(123, 255, 0)"><b>APPLICATIONS OF AI IN REAL WORLD</b></li><br>
+            <li style="color : rgb(0, 255, 191)"><b>AI HAZARDS AND SAFETY</b></li><br>
+            <li style="color : rgb(174, 0, 255)"><b>THE FUTURE</b></li><br>
+            <li style="color : rgb(243, 44, 44)"><b>BIBLIOGRAPHY</b></li><br>
+        </ul>
+
+    </div>
+
+    <div class="div3">
+        <br>
+        <h2 style="color:rgb(30, 255, 0); font-size : 40px; text-align : center">Timeline of Artificial Intelligence
+        </h2>
+        <table id="timeline">
+            <tr>
+                <th>Year</th>
+                <th>Advancement</th>
+                <th>Phase</th>
+            </tr>
+            <tr>
+                <td>1943</td>
+                <td>Warren McCullough and Walter Pitts publish "A Logical Calculus of Ideas Immanent in Nervous
+                    Activity." The paper proposed the first mathematic model for building a neural network. </td>
+                <td>Neural Networks</td>
+            </tr>
+            <tr>
+                <td>1949</td>
+                <td>In his book The Organization of Behavior: A Neuropsychological Theory, Donald Hebb proposes the
+                    theory that neural pathways are created from experiences and that connections between neurons become
+                    stronger the more frequently they're used. Hebbian learning continues to be an important model in
+                    AI.</td>
+                <td>Neural Networks</td>
+            </tr>
+            <tr>
+                <td>1950</td>
+                <td>
+                    <ul>
+                        <li>Alan Turing publishes "Computing Machinery and Intelligence, proposing what is now known as
+                            the Turing Test, a method for determining if a machine is intelligent. </li>
+                        <li>Harvard undergraduates Marvin Minsky and Dean Edmonds build SNARC, the first neural network
+                            computer.</li>
+                        <li>Claude Shannon publishes the paper "Programming a Computer for Playing Chess."</li>
+                        <li>Isaac Asimov publishes the "Three Laws of Robotics."</li>
+                    </ul>
+                </td>
+                <td>Neural Networks</td>
+            </tr>
+
+            <tr>
+                <td>1952</td>
+                <td>Arthur Samuel develops a self-learning program to play checkers. </td>
+                <td>Neural Networks</td>
+            </tr>
+            <tr>
+                <td>1954</td>
+                <td>The Georgetown-IBM machine translation experiment automatically translates 60 carefully selected
+                    Russian sentences into English. </td>
+                <td>Neural Networks</td>
+            </tr>
+            <tr>
+                <td>1956</td>
+                <td>The phrase artificial intelligence is coined at the "Dartmouth Summer Research Project on Artificial
+                    Intelligence." Led by John McCarthy, the conference, which defined the scope and goals of AI, is
+                    widely considered to be the birth of artificial intelligence as we know it today.
+                    Allen Newell and Herbert Simon demonstrate Logic Theorist (LT), the first reasoning program. </td>
+                <td>Neural Networks</td>
+            </tr>
+            <tr>
+                <td>1958</td>
+                <td>John McCarthy develops the AI programming language Lisp and publishes the paper "Programs with
+                    Common Sense." The paper proposed the hypothetical Advice Taker, a complete AI system with the
+                    ability to learn from experience as effectively as humans do. </td>
+                <td>Neural Networks</td>
+            </tr>
+            <tr>
+                <td>1959</td>
+                <td>
+                    <ul>
+                        <li>Allen Newell, Herbert Simon and J.C. Shaw develop the General Problem Solver (GPS), a
+                            program designed to imitate human problem-solving. </li>
+                        <li>Herbert Gelernter develops the Geometry Theorem Prover program.</li>
+                        <li>Arthur Samuel coins the term machine learning while at IBM.</li>
+                        <li>John McCarthy and Marvin Minsky found the MIT Artificial Intelligence Project.</li>
+                    </ul>
+                </td>
+                <td>Neural Networks</td>
+            </tr>
+            <tr>
+                <td>1963</td>
+                <td>John McCarthy starts the AI Lab at Stanford.</td>
+                <td>Neural Networks</td>
+            </tr>
+            <tr>
+                <td>1966</td>
+                <td>The Automatic Language Processing Advisory Committee (ALPAC) report by the U.S. government details
+                    the lack of progress in machine translations research, a major Cold War initiative with the promise
+                    of automatic and instantaneous translation of Russian. The ALPAC report leads to the cancellation of
+                    all government-funded MT projects. </td>
+                <td>Neural Networks</td>
+            </tr>
+            <tr>
+                <td>1969</td>
+                <td>The first successful expert systems are developed in DENDRAL, a XX program, and MYCIN, designed to
+                    diagnose blood infections, are created at Stanford.</td>
+                <td>Neural Networks</td>
+            </tr>
+            <tr>
+                <td>1972</td>
+                <td>The logic programming language PROLOG is created.</td>
+                <td>Machine Learning</td>
+            </tr>
+            <tr>
+                <td>1973</td>
+                <td>The "Lighthill Report," detailing the disappointments in AI research, is released by the British
+                    government and leads to severe cuts in funding for artificial intelligence projects. </td>
+                <td>Machine Learning</td>
+            </tr>
+            <tr>
+                <td>1974-1980</td>
+                <td>Frustration with the progress of AI development leads to major DARPA cutbacks in academic grants.
+                    Combined with the earlier ALPAC report and the previous year's "Lighthill Report," artificial
+                    intelligence funding dries up and research stalls. This period is known as the "First AI Winter."
+                </td>
+                <td>Machine Learning</td>
+            </tr>
+            <tr>
+                <td>1980</td>
+                <td>Digital Equipment Corporations develops R1 (also known as XCON), the first successful commercial
+                    expert system. Designed to configure orders for new computer systems, R1 kicks off an investment
+                    boom in expert systems that will last for much of the decade, effectively ending the first "AI
+                    Winter."</td>
+                <td>Machine Learning</td>
+            </tr>
+            <tr>
+                <td>1982</td>
+                <td>Japan's Ministry of International Trade and Industry launches the ambitious Fifth Generation
+                    Computer Systems project. The goal of FGCS is to develop supercomputer-like performance and a
+                    platform for AI development. </td>
+                <td>Machine Learning</td>
+            </tr>
+            <tr>
+                <td>1983</td>
+                <td>In response to Japan's FGCS, the U.S. government launches the Strategic Computing Initiative to
+                    provide DARPA funded research in advanced computing and artificial intelligence. </td>
+                <td>Machine Learning</td>
+            </tr>
+            <tr>
+                <td>1985</td>
+                <td>
+                    Companies are spending more than a billion dollars a year on expert systems and an entire industry
+                    known as the Lisp machine market springs up to support them. Companies like Symbolics and Lisp
+                    Machines Inc. build specialized computers to run on the AI programming language Lisp. </td>
+                <td>Machine Learning</td>
+            </tr>
+            <tr>
+                <td>1987-1993</td>
+                <td>
+                    <ul>
+                        <li>As computing technology improved, cheaper alternatives emerged and the Lisp machine market
+                            collapsed in 1987, ushering in the "Second AI Winter." During this period, expert systems
+                            proved too expensive to maintain and update, eventually falling out of favor.</li>
+                        <li>Japan terminates the FGCS project in 1992, citing failure in meeting the ambitious goals
+                            outlined a decade earlier.</li>
+                        <li>DARPA ends the Strategic Computing Initiative in 1993 after spending nearly $1 billion and
+                            falling far short of expectations. </li>
+                    </ul>
+                </td>
+                <td>Machine Learning</td>
+            </tr>
+            <tr>
+                <td>1991</td>
+                <td>U.S. forces deploy DART, an automated logistics planning and scheduling tool, during the Gulf War.
+                </td>
+                <td>Machine Learning</td>
+            </tr>
+            <tr>
+                <td>1997</td>
+                <td>IBM's Deep Blue beats world chess champion Gary Kasparov</td>
+                <td>Machine Learning</td>
+            </tr>
+            <tr>
+                <td>2005</td>
+                <td>STANLEY, a self-driving car, wins the DARPA Grand Challenge.
+                    The U.S. military begins investing in autonomous robots like Boston Dynamic's "Big Dog" and iRobot's
+                    "PackBot." </td>
+                <td>Machine Learning</td>
+            </tr>
+            <tr>
+                <td>2008</td>
+                <td>Google makes breakthroughs in speech recognition and introduces the feature in its iPhone app. </td>
+                <td>Machine Learning</td>
+            </tr>
+            <tr>
+                <td>2011</td>
+                <td>IBM's Watson trounces the competition on Jeopardy!.
+                    Apple integrates Siri,
+                    an intelligent virtual
+                    assistant with a voice
+                    interface, into the
+                    iPhone 4S
+                </td>
+                <td>Deep Learning</td>
+            </tr>
+            <tr>
+                <td>2012</td>
+                <td>Andrew Ng, founder of the Google Brain Deep Learning project, feeds a neural network using deep
+                    learning algorithms 10 million YouTube videos as a training set. The neural network learned to
+                    recognize a cat without being told what a cat is, ushering in breakthrough era for neural networks
+                    and deep learning funding.</td>
+                <td>Deep Learning</td>
+            </tr>
+            <tr>
+                <td>2014</td>
+                <td>Google makes first self-driving car to pass a state driving test.Amazon launches Alexa,
+                    an intelligent virtual
+                    assistant with a voice
+                    interface that completes
+                    shopping tasks </td>
+                <td>Deep Learning</td>
+            </tr>
+            <tr>
+                <td>2016</td>
+                <td>Microsoft’s chatbot Tay
+                    goes rogue on social
+                    media making
+                    inflammatory and
+                    offensive racist
+                    comments.
+                    Google’s A.I. AlphaGo
+                    beats world champion
+                    Ke Jie in the complex
+                    board game of Go,
+                    notable for its vast
+                    number (2170) of
+                    possible positions</td>
+                <td>Deep Learning</td>
+            </tr>
+        </table>
+    </div>
+    <div class="div4">
+        <br>
+        <h2 style="color:rgba(255, 208, 0, 0.932); font-size : 40px; text-align : center">How Does AI Work?
+        </h2>
+        <p style="color:rgb(127, 255, 212);font-size : 20px;">AI works by combining large amounts of data with fast,
+            iterative processing and
+            intelligent algorithms,
+            allowing the software to learn automatically from patterns or features in the data. AI is a broad field of
+            study that includes many theories, methods and technologies, as well as the following major subfields:</p>
+        <dl id="list2">
+            <dt>Machine Learning</dt>
+            <dd>> Automates analytical model building. It uses methods from neural networks, statistics, operations
+                research and physics to find hidden insights in data without explicitly being programmed for where to
+                look or what to conclude.</dd>
+            <br>
+            <dt>Neural Network</dt>
+            <dd>> A type of machine learning that is made up of interconnected units (like neurons) that processes
+                information by responding to external inputs, relaying information between each unit. The process
+                requires multiple passes at the data to find connections and derive meaning from undefined data.</dd>
+            <br>
+            <dt>Deep Learning</dt>
+            <dd>> Uses huge neural networks with many layers of processing units, taking advantage of advances in
+                computing power and improved training techniques to learn complex patterns in large amounts of data.
+                Common applications include image and speech recognition.</dd>
+            <br>
+            <dt>Cognitive Computing</dt>
+            <dd>> A subfield of AI that strives for a natural, human-like interaction with machines. Using AI and
+                cognitive computing, the ultimate goal is for a machine to simulate human processes through the ability
+                to interpret images and speech – and then speak coherently in response</dd>
+            <br>
+            <dt>Computer Vision</dt>
+            <dd>> Relies on pattern recognition and deep learning to recognize what’s in a picture or video. When
+                machines can process, analyze and understand images, they can capture images or videos in real time and
+                interpret their surroundings.</dd>
+            <br>
+            <dt>Natural Language Processing (NLP)</dt>
+            <dd>> The ability of computers to analyze, understand and generate human language, including speech. The
+                next stage of NLP is natural language interaction, which allows humans to communicate with computers
+                using normal, everyday language to perform tasks.</dd>
+            <br>
+            <dt>Graphical Processing Units</dt>
+            <dd>> Key to AI because they provide the heavy compute power that’s required for iterative processing.
+                Training neural networks requires big data plus compute power.</dd>
+            <br>
+            <dt>The Internet of Things </dt>
+            <dd>> Generates massive amounts of data from connected devices, most of it unanalyzed. Automating models
+                with AI will allow us to use more of it.</dd>
+            <br>
+            <dt>Advanced Algorithms</dt>
+            <dd>> Developed and combined in new ways to analyze more data faster and at multiple levels. This
+                intelligent processing is key to identifying and predicting rare events, understanding complex systems
+                and optimizing unique scenarios</dd>
+            <br>
+            <dt>Application Programming Interfaces(APIs)</dt>
+            <dd>> Portable packages of code that make it possible to add AI functionality to existing products and
+                software packages. They can add image recognition capabilities to home security systems and Q&A
+                capabilities that describe data, create captions and headlines, or call out interesting patterns and
+                insights in data.</dd>
+        </dl>
+        <p style="color:rgb(127, 255, 212);font-size : 20px;">In summary, the goal of AI is to provide software that can
+            reason on input and explain on output. AI will
+            provide human-like interactions with software and offer decision support for specific tasks.</p>
+    </div>
+
+    <div class=div5>
+        <br>
+        <h2 style="color:rgb(43, 255, 0); text-align:center;font-size:40px">APPLICATIONS OF AI<br> Real World Scenarios
+        </h2>
+        <div class=row>
+            <div class=col1>
+                <h2>Siri - AI Chatbot by Apple.Inc</h2>
+                <p>Siri is a virtual assistant that is part of Apple Inc.'s iOS, iPadOS,
+                    watchOS, macOS, and tvOS operating systems.The assistant uses voice queries and a
+                    natural-language user interface to answer questions, make recommendations, and perform actions by
+                    delegating requests to a set of Internet services.</p>
+                <img src=https://smartliving.tv/wp-content/uploads/2020/03/Siri-Commands-Siri-Questions-Things-to-ask-Siri-1140x570-1.jpg
+                    width=275px height=175px>
+            </div>
+            <div class=col2>
+                <h2>Alexa - AI assistant by Amazon.Inc</h2>
+                <p>Amazon Alexa is a virtual assistant AI technology developed by
+                    Amazon, first used in the Amazon Echo smart speakers developed by Amazon Lab126. It is capable of
+                    voice interaction, music playback, making to-do lists, setting alarms, streaming podcasts, playing
+                    audiobooks, and providing weather, traffic, sports, and other real-time information, such as news.
+                </p>
+                <img src=data:image/jpeg;base64,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
+                    width=275px height=160px>
+            </div>
+            <div class=col3>
+                <h2>DeepMind’s AI-based AlphaGo</h2>
+                <p>AlphaGo is a computer program that plays the board game Go.[1] It was developed by DeepMind
+                    Technologies[2] which was later acquired by Google. Subsequent versions of AlphaGo became
+                    increasingly powerful, including a version that competed under the name Master.</p>
+                <img src=https://i.ytimg.com/vi/gyBvXDLYFfg/maxresdefault.jpg width=275px height=175px>
+            </div>
+            <div class=col3>
+                <h2>AEGIS - AI-based Mars rover</h2>
+                <p>A.I. software on NASA's Curiosity Mars rover has helped it zap dozens of laser targets on the Red
+                    Planet this past year, becoming a frequent science tool when the ground team was out of contact with
+                    the spacecraft. This same software has proven useful enough that it's already scheduled for NASA's
+                    upcoming mission, Mars 2020.</p>
+                <img src=https://www.sciencemag.org/sites/default/files/styles/article_main_image_-_1280w__no_aspect_/public/sn-curiosity.jpg?itok=2XMLUPhh
+                    width=275px height=175px>
+            </div>
+            <div class=col1>
+                <h2>Autonomous Vehicles</h2>
+                <p>A self-driving car, also known as an autonomous vehicle (AV), connected and autonomous vehicle (CAV),
+                    driverless car, robo-car, or robotic car,(automated vehicles and fully automated vehicles
+                    in the European Union) is a vehicle that is capable of sensing its environment and moving safely
+                    with little or no human input.</p>
+                <img src=https://images.idgesg.net/images/article/2018/02/automotive_connected_smart_car_autonomous_vehicle_gui_hud_thinkstock_861086772-100749780-large.jpg
+                    width=275px height=175px>
+            </div>
+            <div class=col2>
+                <h2>Facebook's AI-based Face Recognition - DeepFace</h2>
+                <p>DeepFace is a deep learning facial recognition system created by a research group at Facebook. It
+                    identifies human faces in digital images. It employs a nine-layer neural network with over 120
+                    million connection weights and was trained on four million images uploaded by Facebook users.</p>
+                <img src=https://i2-prod.mirror.co.uk/incoming/article5136881.ece/ALTERNATES/s810/Facebook-facial-recognition-main.jpg
+                    width=275px height=175px>
+            </div>
+        </div>
+    </div>
+
+    <div class="div6">
+        <br>
+        <h1
+            style="color:#000000;font-style:italic;font-size:60px;text-align:center;background-color:rgba(250, 235, 215, 0.781)">
+            Bibliography</h1>
+        <ul id=list1>
+            <li style="color:#186e0d;font-size:25px;background-color: rgba(0, 255, 255, 0.589);"><a
+                    href="https://www.wikipedia.org/"><b>www.wikipedia.org</b></a></li>
+            <hr>
+            <li style="color:#186e0d;font-size:25px;background-color: rgba(0, 255, 255, 0.589);"><a
+                    href="www.unsplash.com"><b>www.unsplash.com</b></a></li>
+            <hr>
+            <li style="color:#186e0d;font-size:25px;background-color: rgba(0, 255, 255, 0.589);"><a
+                    href="https://www.youtube.com/channel/UCEBtm7NHeo6V2TEEiP7Ya7A"><b>www.youtube.com channel name
+                        Dwayne The Rock Johnson</b></a></li>
+            <hr>
+            <li style="color:#186e0d;font-size:25px;background-color: rgba(0, 255, 255, 0.589);"><a
+                    href="https://www.jpl.nasa.gov/news/news.php?feature=6879"><b>www.jpl.nasa.gov</b></a>
+            </li>
+            <hr>
+            <li style="color:#186e0d;font-size:25px;background-color: rgba(0, 255, 255, 0.589);"><a
+                    href="https://builtin.com/artificial-intelligence"><b>www.builtin.com</b></a>
+            </li>
+            <hr>
+            <li style="color:#186e0d;font-size:25px;background-color: rgba(0, 255, 255, 0.589);"><b>www.steemit.com</b>
+            </li>
+            <hr>
+            <li style="color:#186e0d;font-size:25px;background-color: rgba(0, 255, 255, 0.589);"><a
+                    href="https://www.sas.com/en_us/insights/analytics/what-is-artificial-intelligence.html"><b>www.sas.com</b></a>
+            </li>
+            <hr>
+            <li style="color:#186e0d;font-size:25px;background-color: rgba(0, 255, 255, 0.589);"><b>Google Images and
+                    GIFs</b></li>
+            <hr>
+        </ul>
+    </div>
+    <div class=div7>
+        <a href=page2.html><img src='https://i.gifer.com/Kuyp.gif' width='100'
+                height='100' align='right'>
+            <b>CLICK ON THE IMAGE FOR NEXT PAGE<b></a>
+    </div>
+</body>
+
+</html>

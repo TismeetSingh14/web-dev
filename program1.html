@@ -1,0 +1,180 @@
+<html>
+
+<head>
+    <title>Note App</title>
+    <script>var __adobewebfontsappname__ = "code"</script>
+    <script src="https://use.edgefonts.net/voces:n4:all.js"></script>
+    <style>
+        body {
+            background-color: rgba(240, 240, 240, 1);
+            padding: 0px;
+            margin: 0px;
+        }
+
+        header {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 30px;
+            background: black;
+            color: white;
+            font-family: voces;
+            font-size: 14px;
+            line-height: 30px;
+            padding-left: 10px;
+            z-index: 10;
+        }
+
+        #content {
+            margin-top: 30px;
+        }
+
+        #content .wrapper {
+            margin-top: 30px;
+            min-height: 600px;
+            background: white;
+        }
+
+        .wrapper {
+            width: 600px;
+            margin: 0px auto;
+        }
+
+        .title {
+            width: 100%;
+            height: 80px;
+            font-size: 48px;
+            text-align: center;
+            border: 0px;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .title:focus {
+            box-shadow: none;
+            outline: none;
+            background-color: rgba(255, 255, 0, .1);
+        }
+
+        .text {
+            width: 100%;
+            height: 30px;
+            font-size: 18px;
+            text-align: center;
+            border: 0px;
+            position: relative;
+        }
+
+        .text:focus {
+            box-shadow: none;
+            outline: none;
+            background-color: rgba(255, 255, 0, .1);
+        }
+
+        .def {
+            line-height: 50px;
+            width: 100%;
+            height: 50px;
+            font-size: 28px;
+            text-align: center;
+            border: 0px;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .def:focus {
+            box-shadow: none;
+            outline: none;
+            background-color: rgba(255, 255, 0, .1);
+        }
+
+        header span {
+            cursor: pointer;
+        }
+
+        .deleteButton {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 20px;
+            height: 20px;
+            border: 1px solid white;
+            background: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class='wrapper'>
+            <b>New: </b>
+            <span onclick='newTitle()'>Title</span> -
+            <span onclick="newText()">Text</span>
+        </div>
+    </header>
+
+    <div id='content'>
+        <div class='wrapper' id='workSpace'>
+
+        </div>
+    </div>
+    <script>
+            var titles = new Array();
+        var texts = new Array();
+
+        function newTitle()
+        {
+            var name = "Title" + titles.length;
+            
+            if (name !== "Title0")
+            {
+                newHeading();
+                end;
+            }
+            
+            var newTitle = document.createElement('input');
+            newTitle.setAttribute("type", "text")
+            newTitle.setAttribute("placeholder", name)
+            newTitle.setAttribute("class", "title")
+            newTitle.setAttribute("id", name)
+            var workSpace = document.getElementById('workSpace');
+            titles.push(name)
+            
+            workSpace.appendChild(newTitle);
+            document.getElementById(name).focus()
+        }
+        
+        function newHeading()
+        {
+            var name = "Title" + titles.length;
+            
+            var newTitle = document.createElement('input');
+            newTitle.setAttribute("type", "text")
+            newTitle.setAttribute("placeholder", name)
+            newTitle.setAttribute("class", "def")
+            newTitle.setAttribute("id", name)
+            var workSpace = document.getElementById('workSpace');
+            titles.push(name)
+            
+            workSpace.appendChild(newTitle);
+            document.getElementById(name).focus()
+        }
+        
+        function newText()
+        {
+            var name = "Text" + texts.length;
+            
+            var newTitle = document.createElement('textarea');
+            newTitle.setAttribute("placeholder", name)
+            newTitle.setAttribute("class", "text")
+            newTitle.setAttribute("id", name)
+            var workSpace = document.getElementById('workSpace');
+            texts.push(name)
+            
+            workSpace.appendChild(newTitle);
+            document.getElementById(name).focus()
+        }  </script>
+</body>
+</html>

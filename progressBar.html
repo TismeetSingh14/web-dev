@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Progress Bar</title>
+    <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        body {
+            background-image: url('https://wallpaperaccess.com/full/635732.jpg');
+            margin: 0px;
+            background-repeat: no-repeat;
+            background-size: auto;
+        }
+
+        #stepProgressBar {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-text {
+            margin-bottom: 10px;
+            color: #9718ff;
+            font-size:30px;
+            border-radius: 10px;
+            font-family: Bangers;
+            background-color:#fbff02;
+        }
+
+        .bullet {
+            border: 5px solid #ff7c02;
+            height: 55px;
+            width: 60px;
+            border-radius: 100%;
+            color: #ffffff;
+            display: inline-block;
+            position: relative;
+            transition: background-color 500ms;
+            line-height: 40px;
+        }
+
+        .bullet.completed {
+            color: white;
+            background-color: #e20ea2;
+        }
+
+        .bullet.completed::after {
+            content: '';
+            position: absolute;
+            right: -113px;
+            bottom: 22px;
+            height: 5px;
+            width: 108px;
+            background-color: #ffffff;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        button {
+            background-color: #1b40b9;
+            border: none;
+            border-radius: 9px;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin:30px;
+        }
+
+        button:hover {
+            background-color: #9718ff;
+        }
+
+        button:disabled:hover {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            margin-top: 100px;
+            padding: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Progress Bar</h2>
+        <div id="stepProgressBar">
+            <div class="step">
+                <h2 class="step-text">STEP 1</h2>
+                <div class="bullet"><i class="material-icons" style="color:red;font-size:40px">close</i>
+                    <i class="material-icons" style="color:green;font-size:40px;display:none;">done</i></div>
+            </div>
+            <div class="step">
+                <h2 class="step-text">STEP 2</h2>
+                <div class="bullet"><i class="material-icons" style="color:red;font-size:40px">close</i>
+                    <i class="material-icons" style="color:green;font-size:40px;display:none;"></i>">done</i></div>
+            </div>
+            <div class="step">
+                <h2 class="step-text">STEP 3</h2>
+                <div class="bullet"><i class="material-icons" style="color:red;font-size:40px">close</i>
+                    <i class="material-icons" style="color:green;font-size:40px;display:none;"></i>">done</i></div>
+            </div>
+            <div class="step">
+                <h2 class="step-text">STEP 4</h2>
+                <div class="bullet "><i class="material-icons" style="color:red;font-size:40px">close</i>
+                    <i class="material-icons" style="color:green;font-size:40px;display:none;"></i>">done</i></div>
+            </div>
+        </div>
+        <div id="main">
+            <button id="previousBtn">Previous</button>
+            <button id="nextBtn">Next</button>
+            <button id="finishBtn">Finish</button>
+        </div>
+    </div>
+    <script>
+        const previousBtn = document.getElementById('previousBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const finishBtn = document.getElementById('finishBtn');
+        const content = document.getElementById('content');
+        const bullets = [...document.querySelectorAll('.bullet')];
+
+        const MAX_STEPS = 4;
+        let currentStep = 1;
+
+        nextBtn.addEventListener('click', () => {
+            bullets[currentStep - 1].classList.add('completed');
+            currentStep += 1;
+            previousBtn.disabled = false;
+            if (currentStep === MAX_STEPS) {
+                nextBtn.disabled = true;
+                finishBtn.disabled = false;
+            }
+            content.innerText = `Step Number ${currentStep}`;
+        });
+
+
+        previousBtn.addEventListener('click', () => {
+            bullets[currentStep - 2].classList.remove('completed');
+            currentStep -= 1;
+            nextBtn.disabled = false;
+            finishBtn.disabled = true;
+            if (currentStep === 1) {
+                previousBtn.disabled = true;
+            }
+            content.innerText = `Step Number ${currentStep}`;
+        });
+
+        finishBtn.addEventListener('click', () => {
+            location.reload();
+        });
+    </script>
+</body>
+
+</html>

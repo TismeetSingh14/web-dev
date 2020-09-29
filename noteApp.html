@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Notes App</title>
+    <link href='https://fonts.googleapis.com/css?family=Clicker Script' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Alex Brush' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Alegreya SC' rel='stylesheet'>
+    <link href='noteApp.css' rel='stylesheet'>
+</head>
+
+<body style="background-color: bisque;">
+    <div class="div1">
+        <h1 style="font-family:Alex Brush;font-size:63px;color:rgb(226, 50, 50);margin-top:10px;margin-left:10px">
+            Welcome to My
+            Notes</h1>
+        <h2
+            style="font-family:Clicker Script;font-size:55px;color:rgb(121, 15, 219);text-align:right;margin-right:10px">
+            Your Own Mind Palace....</h2>
+    </div>
+
+    <div class='div2'>
+        <br>
+        <h1 style="font-family:Playfair Display;font-size:63px;color:rgb(255, 255, 255);text-align:center">Create
+            Your First Note</h1>
+        <div class='wrapper'>
+            <button onclick="newTitle()">New Title</button>
+            <button onclick="newText()" style="margin-left:5px;">New Text</button>
+            <button onclick="Delete()" style="margin-left:5px;">Delete Last Note</button>
+            <button onclick="ClearAll()" style="margin-left:5px;">Clear All</button>
+        </div>
+        <div id='content'>
+            <div class='wrapper' id='workSpace'>
+            </div>
+        </div>
+    </div>
+
+    <script src = "noteApp.js">
+    </script>
+</body>
+
+</html>

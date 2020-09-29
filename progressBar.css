@@ -1,0 +1,108 @@
+body {
+    background-image: url('https://wallpaperaccess.com/full/635732.jpg');
+    margin: 0px;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.outer {
+    background-color: rgba(146, 127, 255, 0.212);
+    max-width: 700px;
+    margin: 0 auto;
+    margin-top: 100px;
+    padding: 40px;
+}
+
+.points {
+    text-align: center;
+}
+
+.points-text {
+    margin-bottom: 10px;
+    color: rgb(152, 26, 255);
+    font-size: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 10px;
+    font-family: Bangers;
+    background-color: rgb(251, 255, 0);
+}
+
+button {
+    background-color: rgb(27, 56, 185);
+    border: none;
+    border-radius: 9px;
+    color: rgb(3, 236, 147);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    margin: 30px;
+}
+
+button:hover {
+    background-color: rgb(151, 24, 255);
+}
+
+button:disabled:hover {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#pgBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 700px;
+    margin-bottom: 40px;
+}
+
+.prog {
+    width: 100%;
+    background-color: rgb(236, 128, 240);
+    border-radius: 10px;
+}
+
+#bar {
+    width: 4%;
+    height: 50px;
+    background-color: rgb(241, 142, 142);
+    border-radius: 10px;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+    color: rgb(18, 41, 247);
+    font-size: 25px;
+}
+
+.hidden {
+    display: none;
+}
+
+.blts {
+    border: 5px solid rgb(255, 124, 2);
+    height: 55px;
+    width: 60px;
+    border-radius: 100%;
+    color: rgb(255, 255, 255);
+    display: inline-block;
+    position: relative;
+    transition: background-color 500ms;
+    line-height: 40px;
+}
+
+.blts.clear {
+    color: rgb(255, 255, 255);
+    background-color: rgb(6, 247, 255);
+}
+
+.blts.clear::after {
+    content: '';
+    position: absolute;
+    right: -94px;
+    bottom: 24px;
+    height: 5px;
+    width: 90px;
+    background-color: rgb(255, 255, 255);
+}

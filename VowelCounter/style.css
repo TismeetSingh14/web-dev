@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Piedra&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin:0;
+    display: flex;
+    flex-wrap:wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image:url('https://images4.alphacoders.com/936/936378.jpg');
+    background-position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    background-color: rgba(61, 61, 61, 0.473);
+    min-width: 700px;
+    min-height:600px;
+    overflow: auto;
+    display: flex;
+    flex-wrap:wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container input {
+    font-size:30px;
+    width:600px;
+    padding: 10px 20px 10px 20px;
+    outline: none;
+    border: 1px solid rgb(255, 47, 47);
+    border-radius: 30px;
+    color: white;
+    background-color: black;
+    font-family: "Poppins";
+    margin-top: 50px;
+}
+
+/* .answers {
+    background-color: rgba(72, 89, 243, 0.295);
+    min-width: 600px;
+    min-height:400px;
+    margin-bottom: 20px;
+    display: flex;
+    overflow: auto;
+    flex-wrap:wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+
+#header {
+    font-family: "Piedra";
+    font-size: 60px;
+    color: rgb(255, 153, 0);
+    margin-bottom: 0;
+}
+
+#premise {
+    font-family: "Libre+Baskerville";
+    font-size: 40px;
+    color: rgb(0, 228, 57);
+    margin-bottom:3px;
+}
+
+#answer {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 130px;
+    color: yellow;
+    margin-top:3px;
+    font-family: "Pacifico";
+}
+
+button {
+    background-color: rgb(169, 93, 231);
+    border: none;
+    font-weight: bold;
+    border-radius: 9px;
+    color: rgb(238, 238, 238);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 23px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px rgb(132, 0, 240);
+    outline: none;
+}
+
+button:active {
+    position: relative;
+    box-shadow: 0 0px #3c6294;
+    top: 3px;
+    box-shadow: 0 0;
+}

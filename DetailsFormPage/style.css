@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:ital,wght@1,500&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.rightPart {
+    height: 100%;
+    width: 65%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    right: 0;
+    background-color: rgb(250, 121, 15);
+}
+
+.leftPart {
+    height: 100%;
+    width: 350%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    left: 0;
+    background-color: #111;
+}
+
+.centerAlignLeft {
+    position: absolute;
+    margin-left: 2.75%;
+    text-align: center;
+}
+
+.centerAlignRight {
+    position: absolute;
+    margin-left: 20%;
+    margin-top: 4%;
+    text-align: center;
+}
+
+.centerAlignLeft img {
+    width: 200px;
+    height: 250px;
+    border: 1px thick whitesmoke;
+    border-radius: 100%;
+}
+
+#one {
+    background-color: black;
+    color:rgb(221, 160, 90);
+    font-size: 30px;
+    font-family: Bangers;
+    text-align: right;
+    padding:10px 10px 10px 50px;
+}
+
+#two {
+    background-color: rgb(221, 160, 90);
+    color:black;
+    font-size: 20px;
+    font-family: Poppins;
+    text-align: right;
+    padding:10px 10px 10px 50px;
+}

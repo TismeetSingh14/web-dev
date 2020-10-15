@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/3589a8032b.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+        crossorigin="anonymous"></script>
+    <title>Book Store</title>
+</head>
+
+<body>
+    <!--NAV BAR-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-mycol">
+        <a class="navbar-brand" href="#">Amaze</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-shopping-cart fa-2x"></i></a>
+                </li>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="main">
+        <div id="Carousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#Carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#Carousel" data-slide-to="1"></li>
+                <li data-target="#Carousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item carousel-image-1 active">
+                    <div class="carousel-caption d-none d-md-block text-right mb-5">
+                        <h1 class="display-3 title-color">Title One</h1>
+                        <p class="lead">What is on your reading bucket list?</p>
+                        <a href="#" class="btn btn-color slide-btn btn-lg">Learn More</a>
+                    </div>
+                </div>
+                <div class="carousel-item carousel-image-2">
+                    <div class="carousel-caption d-none d-md-block text-right mb-5">
+                        <h1 class="display-3 title-color">Title Two</h1>
+                        <p class="lead">A wide variety to choose from</p>
+                        <a href="#" class="btn btn-color slide-btn btn-lg">Start Shopping</a>
+                    </div>
+                </div>
+                <div class="carousel-item carousel-image-3">
+                    <div class="carousel-caption d-none d-md-block text-right mb-5">
+                        <h1 class="display-3 title-color">Title Three</h1>
+                        <p class="lead">Smell of new books is just amazing</p>
+                        <a href="#" class="btn btn-color slide-btn btn-lg">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#Carousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#Carousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </section>
+
+    <section id="services" class="services py-5 text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-10 mx-auto col-md-6 col-lg-3 my-3">
+                    <span class="service-icon">
+                        <i class="fas fa-globe fa-2x"></i>
+                    </span>
+                    <h5 class="font-weight-bold text-uppercase">Worldwide Shipping</h5>
+                    <p class="text-capitalize">We are currently setup in 106+ countries around the globe.</p>
+                </div>
+
+                <div class="col-10 mx-auto col-md-6 col-lg-3 my-3">
+                    <span class="service-icon">
+                        <i class="fas fa-stamp fa-2x"></i>
+                    </span>
+                    <h5 class="font-weight-bold text-uppercase">Certified Suppliers</h5>
+                    <p class="text-capitalize">You can by our books directly from the local bookstore currently in
+                        partnership with our enterprise</p>
+                </div>
+
+                <div class="col-10 mx-auto col-md-6 col-lg-3 my-3">
+                    <span class="service-icon">
+                        <i class="fas fa-file-invoice-dollar fa-2x"></i>
+                    </span>
+                    <h5 class="font-weight-bold text-uppercase">10 Day Return Policy</h5>
+                    <p class="text-capitalize">Not satisfied? We provide a 10-Day return policy.</p>
+                </div>
+
+                <div class="col-10 mx-auto col-md-6 col-lg-3 my-3">
+                    <span class="service-icon">
+                        <i class="fas fa-exchange-alt fa-2x"></i>
+                    </span>
+                    <h5 class="font-weight-bold text-uppercase">Exchange Offer</h5>
+                    <p class="text-capitalize">Got old books? Get offers for exchange of old books.We deliver them to
+                        the less priviledged.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-10 mx-auto col-sm-6 text-center">
+                    <h1 class="text-capitalize product-title">
+                        Featured Products
+                    </h1>
+                </div>
+            </div>
+            <div class="row product-items" id="product-items">
+                <div class="col-10 mx-auto col-sm-6 col-lg-4 my-3">
+                    <div class="card single-item">
+                        <div class="img-container">
+                            <img src=".\book images\img1.jpg" class="card-img-top product-img">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text d-flex justify-content-between text-capitalize">
+                                <h5 id="item-name">Good Book</h5>
+                                <span><i class="fas fa-dollar-sign"></i>29.99</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-10 mx-auto col-sm-6 col-lg-4 my-3">
+                    <div class="card single-item">
+                        <div class="img-container">
+                            <img src=".\book images\img2.jpg" class="card-img-top product-img">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text d-flex justify-content-between text-capitalize">
+                                <h5 id="item-name">Good Book</h5>
+                                <span><i class="fas fa-dollar-sign"></i>25.99</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-10 mx-auto col-sm-6 col-lg-4 my-3">
+                    <div class="card single-item">
+                        <div class="img-container">
+                            <img src=".\book images\img3.jpg" class="card-img-top product-img">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text d-flex justify-content-between text-capitalize">
+                                <h5 id="item-name">Good Book</h5>
+                                <span><i class="fas fa-dollar-sign"></i>19.99</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-10 mx-auto col-sm-6 col-lg-4 my-3">
+                    <div class="card single-item">
+                        <div class="img-container">
+                            <img src=".\book images\img4.jpg" class="card-img-top product-img">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text d-flex justify-content-between text-capitalize">
+                                <h5 id="item-name">Good Book</h5>
+                                <span><i class="fas fa-dollar-sign"></i>31.99</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-10 mx-auto col-sm-6 col-lg-4 my-3">
+                    <div class="card single-item">
+                        <div class="img-container">
+                            <img src=".\book images\img5.jpg" class="card-img-top product-img">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text d-flex justify-content-between text-capitalize">
+                                <h5 id="item-name">Good Book</h5>
+                                <span><i class="fas fa-dollar-sign"></i>29.99</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-10 mx-auto col-sm-6 col-lg-4 my-3">
+                    <div class="card single-item">
+                        <div class="img-container">
+                            <img src=".\book images\img6.jpg" class="card-img-top product-img">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text d-flex justify-content-between text-capitalize">
+                                <h5 id="item-name">Good Book</h5>
+                                <span><i class="fas fa-dollar-sign"></i>9.99</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-10 mx-auto col-sm-6 col-lg-4 my-3">
+                    <div class="card single-item">
+                        <div class="img-container">
+                            <img src=".\book images\img7.jpg" class="card-img-top product-img">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text d-flex justify-content-between text-capitalize">
+                                <h5 id="item-name">Good Book</h5>
+                                <span><i class="fas fa-dollar-sign"></i>30.99</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-10 mx-auto col-sm-6 col-lg-4 my-3">
+                    <div class="card single-item">
+                        <div class="img-container">
+                            <img src=".\book images\img8.jpg" class="card-img-top product-img">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text d-flex justify-content-between text-capitalize">
+                                <h5 id="item-name">Good Book</h5>
+                                <span><i class="fas fa-dollar-sign"></i>29.99</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-10 mx-auto col-sm-6 col-lg-4 my-3">
+                    <div class="card single-item">
+                        <div class="img-container">
+                            <img src=".\book images\img9.jpg" class="card-img-top product-img">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text d-flex justify-content-between text-capitalize">
+                                <h5 id="item-name">Good Book</h5>
+                                <span><i class="fas fa-dollar-sign"></i>15.99</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-10 mx-auto col-sm-6 col-lg-4 my-3">
+                    <div class="card single-item">
+                        <div class="img-container">
+                            <img src=".\book images\img10.jpg" class="card-img-top product-img">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text d-flex justify-content-between text-capitalize">
+                                <h5 id="item-name">Good Book</h5>
+                                <span><i class="fas fa-dollar-sign"></i>10.99</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-10 mx-auto col-sm-6 col-lg-4 my-3">
+                    <div class="card single-item">
+                        <div class="img-container">
+                            <img src=".\book images\img11.jpg" class="card-img-top product-img">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text d-flex justify-content-between text-capitalize">
+                                <h5 id="item-name">Good Book</h5>
+                                <span><i class="fas fa-dollar-sign"></i>12.99</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-10 mx-auto col-sm-6 col-lg-4 my-3">
+                    <div class="card single-item">
+                        <div class="img-container">
+                            <img src=".\book images\img12.jpg" class="card-img-top product-img">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text d-flex justify-content-between text-capitalize">
+                                <h5 id="item-name">Good Book</h5>
+                                <span><i class="fas fa-dollar-sign"></i>39.99</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="about-sec">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 text-center">
+                    <img src="imgs4.jpg" width="450px" height="150" class="img-fluid watch-img">
+                </div>
+                <div class="col-lg-7 text-lg-right text-center text-color about-text">
+                    <h1>About Us</h1>
+                    <p class="text">For all the book lovers around the world, here we are with our latest collection of
+                        a wide variety of genres and categories. Welcome to the biggest library you can find on
+                        Earth.....</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seller py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-10 mx-auto col-sm-6 text-center">
+                    <h1 class="text-capitalize product-title">
+                        Best Sellers
+                    </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="seller-item">
+                        <img src=".\book images\img13.jpg" alt="" class="img-fluid photo">
+                        <p>Best #1</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 d-flex flex-column justify-content-between">
+                    <div class = "row">
+                        <div class = "col-sm-6">
+                            <div class = "seller-item">
+                                <img src=".\book images\img14.jpg" alt="" class="img-fluid seller-img">
+                                <p>Best #2</p>
+                            </div>
+                        </div>
+
+                        <div class = "col-sm-6">
+                            <div class = "seller-item">
+                                <img src=".\book images\img15.jpg" alt="" class="img-fluid seller-img">
+                                <p>Best #3</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "row">
+                        <div class = "col-sm-6">
+                            <div class = "seller-item">
+                                <img src=".\book images\img16.jpg" alt="" class="img-fluid seller-img">
+                                <p>Best #4</p>
+                            </div>
+                        </div>
+
+                        <div class = "col-sm-6">
+                            <div class = "seller-item">
+                                <img src=".\book images\img17.jpg" alt="" class="img-fluid seller-img">
+                                <p>Best #5</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
+
+<!--Optional JavaScript; choose one of the two! -->
+
+<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script> -->
+
+<!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+   

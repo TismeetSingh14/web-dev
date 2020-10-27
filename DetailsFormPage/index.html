@@ -9,38 +9,51 @@
 </head>
 
 <body>
-    <div class="leftPart">
-        <h2 style="color: rgb(250, 121, 15);font-size: 60px;margin-left:2.75%">STUDENT</h2>
-        <div class="centerAlignLeft">
-            <img src="myIMG.jpeg" alt="studentimage">
-        </div>
-    </div>
+    <div class="container">
 
-    <div class="rightPart">
-        <h2 style="color:rgb(0, 0, 0);font-size: 60px;margin-left:1.75%">DETAILS</h2>
-        <div class="centerAlignRight">
-            <table>
-                <tr>
-                    <td id = "one">Name</td>
-                    <td id = "two">Tismeet Singh</td>
-                </tr>
-                <tr>
-                    <td id = "one">Roll Number</td>
-                    <td id = "two">2019UCO1693</td>
-                </tr>
-                <tr>
-                    <td id = "one">Branch</td>
-                    <td id = "two">Computer Engineering</td>
-                </tr>
-                <tr>
-                    <td id = "one">Year of Study</td>
-                    <td id = "two">2<sup>nd</sup> Year</td>
-                </tr>
-                <tr>
-                    <td id = "one">Interests</td>
-                    <td id = "two">Coding</td>
-                </tr>
-            </table>
+        <h1 class="headTitle"><span>PROFILE PAGE</span></h1>
+    
+        <div class="wrapper">
+            <img src = "myIMG.jpeg" alt = "image">
+            <div class="contact">
+                <h3>My Details</h3>
+    
+                <form id="contact-form">
+                    <p>
+                        <label>Full Name</label>
+                        <input type="text" name="name" placeholder="Tismeet Singh">
+                    </p>
+    
+                    <p>
+                        <label>College</label>
+                        <input type="text" name="college" placeholder="Netaji Subhas University of Technology">
+                    </p>
+    
+                    <p>
+                        <label>Branch</label>
+                        <input type="text" name="branch"placeholder="Computer Science and Engineering">
+                    </p>
+    
+                    <p>
+                        <label>Year</label>
+                        <input type="text" name="year"placeholder="3rd Year">
+                    </p>
+
+                    <p>
+                        <label>Semeseter</label>
+                        <input type="text" name="semeseter" placeholder="3rd">
+                    </p>
+    
+                    <p>
+                        <label>Phone Number</label>
+                        <input type="text" name="phone"placeholder="9944499444">
+                    </p>
+                    <p class="full">
+                        <label>About me</label>
+                        <textarea name="message" rows="5" placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus ut volup!"></textarea>
+                    </p>
+                </form>
+            </div>
         </div>
     </div>
 </body>

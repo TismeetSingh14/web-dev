@@ -1,180 +1,1629 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-    <title>Note App</title>
-    <script>var __adobewebfontsappname__ = "code"</script>
-    <script src="https://use.edgefonts.net/voces:n4:all.js"></script>
-    <style>
-        body {
-            background-color: rgba(240, 240, 240, 1);
-            padding: 0px;
-            margin: 0px;
-        }
-
-        header {
-            position: fixed;
-            top: 0px;
-            left: 0px;
-            width: 100%;
-            height: 30px;
-            background: black;
-            color: white;
-            font-family: voces;
-            font-size: 14px;
-            line-height: 30px;
-            padding-left: 10px;
-            z-index: 10;
-        }
-
-        #content {
-            margin-top: 30px;
-        }
-
-        #content .wrapper {
-            margin-top: 30px;
-            min-height: 600px;
-            background: white;
-        }
-
-        .wrapper {
-            width: 600px;
-            margin: 0px auto;
-        }
-
-        .title {
-            width: 100%;
-            height: 80px;
-            font-size: 48px;
-            text-align: center;
-            border: 0px;
-            font-weight: bold;
-            position: relative;
-        }
-
-        .title:focus {
-            box-shadow: none;
-            outline: none;
-            background-color: rgba(255, 255, 0, .1);
-        }
-
-        .text {
-            width: 100%;
-            height: 30px;
-            font-size: 18px;
-            text-align: center;
-            border: 0px;
-            position: relative;
-        }
-
-        .text:focus {
-            box-shadow: none;
-            outline: none;
-            background-color: rgba(255, 255, 0, .1);
-        }
-
-        .def {
-            line-height: 50px;
-            width: 100%;
-            height: 50px;
-            font-size: 28px;
-            text-align: center;
-            border: 0px;
-            font-weight: bold;
-            position: relative;
-        }
-
-        .def:focus {
-            box-shadow: none;
-            outline: none;
-            background-color: rgba(255, 255, 0, .1);
-        }
-
-        header span {
-            cursor: pointer;
-        }
-
-        .deleteButton {
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            width: 20px;
-            height: 20px;
-            border: 1px solid white;
-            background: red;
-            cursor: pointer;
-        }
-    </style>
+  <title>Weather.io</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Domine:wght@500&display=swap" rel="stylesheet">
+  <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.6/css/boxicons.min.css' rel='stylesheet'>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeESyxuRqSIk1SNCy3PyqSy9AtBOSR-OI&callback=initMap&libraries=&v=weekly"
+    defer></script>
 </head>
 
 <body>
-    <header>
-        <div class='wrapper'>
-            <b>New: </b>
-            <span onclick='newTitle()'>Title</span> -
-            <span onclick="newText()">Text</span>
+  <div class="container">
+    <div class="row alignment2" style="height: 100%;">
+      <div class="col-sm-3" style="height:100%">
+        <div class="img">
+          <div class="row">
+            <div class="col-6">
+              <img src="images/weather-icon2.png" style="width: 60%; margin: 2rem 0 0 0rem;">
+            </div>
+            <div class="col-2">
+              <h3 class="alignment2" style="margin: 3rem 0 0 0;">Weather.io</h3>
+            </div>
+          </div>
         </div>
-    </header>
-
-    <div id='content'>
-        <div class='wrapper' id='workSpace'>
+        <div class="row">
+          <div class="col-12 ">
+            <a href="#dashboard" class="nav" id="dashboard"><i class="bx bxs-dashboard ico"></i> Dashboard</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 ">
+            <a href="#home" class="nav" id="location"><i class="bx bxs-map ico"></i> Location</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 ">
+            <a href="#home" class="nav" id="Map"><i class="bx bxs-map-alt ico"></i> Map</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 ">
+            <a href="#home" class="nav"><i class="bx bxs-user ico"></i> About</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-5 highlight alignment1">
+        <div id="innerconsole">
+          <h4 style="margin-top: 1rem;margin-bottom: none !important;">Today's Highlights</h4>
+          <div class="row" style="height:30%;">
+            <div class="col-6 alignment2">
+              <div class="card" style="width: 18rem; ">
+                <div class="card-body">
+                  <h6 class="card-subtitle mb-2 text-muted">Ultra-Violet Index</h6>
+                  <div class="progress">
+                    <div class="progress-bar bg-warning" id="bar" style="width:0%"></div>
+                  </div>
+                  <h5 class="card-title" style="text-align: center;" id="uv-index"><strong></strong></h5>
+                  <p class="card-text" style="font-size: 0.9rem;" id="uv-desc"></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 alignment2">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h6 class="card-subtitle mb-2 text-muted">Sunrise and Sunset</h6>
+                  <div class="row" style="padding: 5px 0;">
+                    <div class="col-6">
+                      <span class="iconify sun" data-icon="wi-sunrise" data-inline="false"
+                        style="color: orange; font-size: 3rem;"></span>
+                    </div>
+                    <div class="col-6 alignment2">
+                      <h5 class="card-title" id="sunrise" style="font-size: 1rem;"></h5>
+                    </div>
+                  </div>
+                  <div class="row" style="padding: 5px 0;">
+                    <div class="col-6">
+                      <span class="iconify" data-icon="wi-sunset" data-inline="false"
+                        style="color: orange; font-size: 3.5rem;"></span>
+                    </div>
+                    <div class="col-6 alignment2">
+                      <h5 class="card-title" id="sunset" style="font-size: 1rem;"></h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="height:30%;">
+            <div class="col-6 alignment2">
+              <div class="card" style="width: 18rem; ">
+                <div class="card-body">
+                  <h6 class="card-subtitle mb-2 text-muted">Wind Status</h6>
+                  <p class="speed"><strong id="wind-speed"></strong><span class="unit">km/h</span></p>
+                  <h6 id="wind-dir">WSW</h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 alignment2">
+              <div class="card" style="width: 18rem; ">
+                <div class="card-body">
+                  <h6 class="card-subtitle mb-2 text-muted">Visibility</h6>
+                  <p class="speed"><strong id="vis-val"></strong><span class="unit">km</span></p>
+                  <h6 id="vis-status">Average</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="height:30%;">
+            <div class="col-6 alignment2">
+              <div class="card" style="width: 18rem; ">
+                <div class="card-body">
+                  <h6 class="card-subtitle mb-2 text-muted">Humidity</h6>
+                  <p class="speed"><strong id="humidity"></strong><span class="unit">%</span></p>
+                  <h6 id="humidity-status"></h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 alignment2">
+              <div class="card" style="width: 18rem; ">
+                <div class="card-body">
+                  <h6 class="card-subtitle mb-2 text-muted">Air Quality</h6>
+                  <p class="speed"><strong id="aqi-val">152</strong></p>
+                  <h6 id="aqi-status">Unhealthy</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="search" style="display: none;">
+          <div class="con-search notValue">
+            <div class="con-input">
+              <input onblur="handleBlur()" onfocus="handleFocus(event)" placeholder="Search Object"
+                oninput="handleSearch(event)" type="text">
+              <i class="bx bx-search"></i>
+              <i onclick="handleRemove()" class="bx bx-x"></i>
+            </div>
+            <div class="content-results">
+              <div class="con-results">
+                <div class="not-results">Not Results</div>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="height:12rem">
+            <div class="col-6">
+              <div class="card" style="width: 12rem;cursor: pointer; " id="card1">
+                <div class="card-body">
+                  <h6 class="card-subtitle mb-2 text-muted">Delhi</h6>
+                  <p class="speed"><strong id="Delhi"></strong><span class="celcius"><sup>&#8451;</sup></span>
+                  <h6 id="Delhicond"></h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="card" style="width: 12rem;cursor: pointer; " id="card2">
+                <div class="card-body">
+                  <h6 class="card-subtitle mb-2 text-muted">London</h6>
+                  <p class="speed"><strong id="London"></strong><span class="celcius"><sup>&#8451;</sup></span>
+                  <h6 id="Londoncond"></h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="height:12rem">
+            <div class="col-6">
+              <div class="card" style="width: 12rem;cursor: pointer; " id="card3">
+                <div class="card-body">
+                  <h6 class="card-subtitle mb-2 text-muted">Paris</h6>
+                  <p class="speed"><strong id="Paris"></strong><span class="celcius"><sup>&#8451;</sup></span>
+                  <h6 id="Pariscond"></h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="card" style="width: 12rem;cursor: pointer; " id="card4">
+                <div class="card-body">
+                  <h6 class="card-subtitle mb-2 text-muted">New York</h6>
+                  <p class="speed"><strong id="New York"></strong><span class="celcius"><sup>&#8451;</sup></span>
+                  <h6 id="New Yorkcond"></h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="height:12rem">
+            <div class="col-6">
+              <div class="card" style="width: 12rem;cursor: pointer; " id="card5">
+                <div class="card-body">
+                  <h6 class="card-subtitle mb-2 text-muted">Mumbai</h6>
+                  <p class="speed"><strong id="Mumbai"></strong><span class="celcius"><sup>&#8451;</sup></span>
+                  <h6 id="Mumbaicond"></h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="card" style="width: 12rem;cursor: pointer; " id="card6">
+                <div class="card-body">
+                  <h6 class="card-subtitle mb-2 text-muted">Kolkata</h6>
+                  <p class="speed"><strong id="Kolkata"></strong><span class="celcius"><sup>&#8451;</sup></span>
+                  <h6 id="Kolkatacond"></h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Map Function -->
+        <div id="map">
 
         </div>
+      </div>
+      <div class="col-sm-4">
+
+        <!--START OF TOP DETAILS-->
+        <div class="row" style="padding: 5px 0;">
+          <div class="col-6 ">
+            <h5 class="location mb-2" id="city"></h5>
+            <h6 class="country-name" id="country"></h6>
+            <h6 class="day-date" id="date"></h6>
+          </div>
+          <div class="col-6 alignment2">
+            <img src="images/netherlands.png" style="width: 30%; margin: -0.2rem -4rem 0 0rem;">
+          </div>
+        </div>
+        <!--END OF TOP DETAILS-->
+
+        <!--START OF TEMPERATURE DETAILS-->
+        <h4 class="today mb-2 text-center">Today</h4>
+        <div class="row" style="padding: 5px 0;">
+          <div class="col-6 ">
+            <!--ICON SUN MAIN START-->
+            <div class="anim-icon" style="margin-left:5.5rem;margin-bottom: -1.5rem;">
+              <div class="sunny">
+                <div class="rays"></div>
+              </div>
+            </div>
+            <!--ICON SUN MAIN END-->
+          </div>
+          <div class="col-6 alignment2">
+            <p class="temper" id="today">
+            <p class="cel"><sup>&#8451;</sup></p>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col alignment2">
+            <h4 id="weather"></h4>
+          </div>
+        </div>
+        <!--START OF TEMPERATURE DETAILS-->
+
+        <!--START OF WEATHER DETAILS (ICONS)-->
+        <div class="row">
+          <div class="col-4 alignment2">
+            <!--WIND ICON-->
+            <img src="images/wind.png" style="width: 50%; margin: 0rem 0 0 0rem;">
+          </div>
+          <div class="col-4 alignment2">
+            <!--HUMIDITY ICON-->
+            <img src="images/humidity.png" style="width: 50%; margin: 0rem 0 0 0rem;">
+          </div>
+          <div class="col-4 alignment2">
+            <!--START OF RAIN ICON-->
+            <div class="anim-icon" style="font-size:0.4em">
+              <div class="cloud"></div>
+              <div class="rain"></div>
+            </div>
+            <!--END OF RAIN ICON-->
+          </div>
+        </div>
+        <div class="row" style="margin-top:0.3rem">
+          <div class="col-4">
+            <h6 class="alignment2" id="windspeedright"></h6>
+          </div>
+          <div class="col-4">
+            <h6 class="alignment2" id="humidityright"></h6>
+          </div>
+          <div class="col-4">
+            <h6 class="alignment2" id="precipitation"></h6>
+          </div>
+        </div>
+        <!--END OF WEATHER DETAILS (ICONS)-->
+        <div class="row">
+          <div class="col">
+            <h4 style="margin: 2rem 0 1rem;">Weather Forecast</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3" style="padding-left: 0;">
+            <div class="card cardx" style="width: 5.5rem; ">
+              <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted time">Today</h6>
+                <p class="speedx" id="day"></p>
+                <!--START OF CLOUDY ICON-->
+                <div class="anim-icon" style="font-size: 0.4em;margin-left:-2em;">
+                  <div class="cloud"></div>
+                  <div class="cloud"></div>
+                </div>
+                <!--END OF CLOUDY ICON-->
+              </div>
+            </div>
+          </div>
+          <div class="col-3" style="padding-left: 0;">
+            <div class="card cardx" style="width: 5.5rem; ">
+              <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted time">Tom</h6>
+                <p class="speedx" id="day1"></p>
+                <!--START OF THUNDERSTORM ICON-->
+                <div class="anim-icon" style="font-size: 0.4em;margin-left:-2em;">
+                  <div class="cloud"></div>
+                  <div class="lightning">
+                    <div class="bolt"></div>
+                    <div class="bolt"></div>
+                  </div>
+                </div>
+                <!--END OF THUNDERSTORM ICON-->
+              </div>
+            </div>
+          </div>
+          <div class="col-3" style="padding-left: 0;">
+            <div class="card cardx" style="width: 5.5rem; ">
+              <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted time" id="daytwo"></h6>
+                <p class="speedx" id="day2"></p>
+                <!--START OF SUN SHOWER ICON-->
+                <div class="anim-icon" style="font-size: 0.4em;margin-left:-2em;">
+                  <div class="cloud"></div>
+                  <div class="sun">
+                    <div class="rays"></div>
+                  </div>
+                  <div class="rain"></div>
+                </div>
+                <!--END OF SUN SHOWER ICON-->
+              </div>
+            </div>
+          </div>
+          <div class="col-3" style="padding-left: 0;">
+            <div class="card cardx" style="width: 5.5rem; ">
+              <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted time" id="daythree"></h6>
+                <p class="speedx" id="day3"></p>
+                <!--START OF SNOW ICON-->
+                <div class="anim-icon" style="font-size: 0.4em;margin-left:-2em;">
+                  <div class="cloud"></div>
+                  <div class="snow">
+                    <div class="flake"></div>
+                    <div class="flake"></div>
+                  </div>
+                </div>
+                <!--END OF SNOW ICON-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <script>
-            var titles = new Array();
-        var texts = new Array();
+  </div>
+  </div>
 
-        function newTitle()
-        {
-            var name = "Title" + titles.length;
-            
-            if (name !== "Title0")
-            {
-                newHeading();
-                end;
-            }
-            
-            var newTitle = document.createElement('input');
-            newTitle.setAttribute("type", "text")
-            newTitle.setAttribute("placeholder", name)
-            newTitle.setAttribute("class", "title")
-            newTitle.setAttribute("id", name)
-            var workSpace = document.getElementById('workSpace');
-            titles.push(name)
-            
-            workSpace.appendChild(newTitle);
-            document.getElementById(name).focus()
-        }
-        
-        function newHeading()
-        {
-            var name = "Title" + titles.length;
-            
-            var newTitle = document.createElement('input');
-            newTitle.setAttribute("type", "text")
-            newTitle.setAttribute("placeholder", name)
-            newTitle.setAttribute("class", "def")
-            newTitle.setAttribute("id", name)
-            var workSpace = document.getElementById('workSpace');
-            titles.push(name)
-            
-            workSpace.appendChild(newTitle);
-            document.getElementById(name).focus()
-        }
-        
-        function newText()
-        {
-            var name = "Text" + texts.length;
-            
-            var newTitle = document.createElement('textarea');
-            newTitle.setAttribute("placeholder", name)
-            newTitle.setAttribute("class", "text")
-            newTitle.setAttribute("id", name)
-            var workSpace = document.getElementById('workSpace');
-            texts.push(name)
-            
-            workSpace.appendChild(newTitle);
-            document.getElementById(name).focus()
-        }  </script>
+  <script src="script.js"></script>
+  <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>
+<!--HELLO WORLD-->
+
+
+
+
+var uvmap = ["No protection needed. You can safely stay outside", "Protection needed. Seek shade during late morning
+through mid-afternoon.", "Extra protection needed. Be careful outside, especially during afternoon"];
+
+var visibleIndex = ["Excellent", "Very Good", "Good", "Moderate", "Poor"];
+var humidityIndex = [" Very Dry", "Dry", "Moderate", "Humid", "Very Humid"];
+var airQualityIndex = ["Good", "Moderate", "Unhealthy", "Very Unhealthy", "Hazardous"];
+var dayOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+var monthOfYear = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+
+var long;
+var latitude;
+
+var dict = {
+"New Delhi": {
+"name": "New Delhi",
+"state": "Delhi",
+"country": "India",
+},
+"Mumbai": {
+"name": "Mumbai",
+"state": "Maharashtra",
+"country": "India",
+},
+"Kolkata": {
+"name": "Kolkata",
+"state": "West Bengak",
+"country": "India",
+},
+"Chennai": {
+"name": "Chennai",
+"state": "Tamil Nadu",
+"country": "India",
+},
+"Banglore": {
+"name": "Banglore",
+"state": "Karnataka",
+"country": "India",
+},
+"Paris": {
+"name": "Paris",
+"state": "ile-de-france",
+"country": "France",
+},
+"New York City": {
+"name": "New York City",
+"state": "New York",
+"country": "USA",
+},
+"Tokyo": {
+"name": "Tokyo",
+"state": "Tokyo",
+"country": "Japan",
+},
+"London": {
+"name": "London",
+"state": "England",
+"country": "UK",
+},
+"Adelaide": {
+"name": "Adelaide",
+"state": "South Australia",
+"country": "Australia",
+},
+
+"Melbourne": {
+"name": "Melbourne",
+"state": "Victoria",
+"country": "Australia",
+},
+
+"Cape Town": {
+"name": "Cape Town",
+"state": "Western Cape",
+"country": "South Africa",
+},
+
+"Amsterdam": {
+"name": "Amsterdam",
+"state": "North Holland",
+"country": "Netherlands",
+}
+}
+
+//Main Call to original Page
+function getValues(city = "New Delhi") {
+const main = new XMLHttpRequest();
+const urlweather = 'https://api.weatherapi.com/v1/forecast.json?key=b237bbd52a554e65b4b62837202010&q=' + `${city}` +
+'+&days=5';
+main.open("GET", urlweather);
+main.send();
+
+main.onload = (e) => {
+var res = JSON.parse(main.responseText);
+var temp = res.current.temp_c;
+var cond = res.current.condition.text;
+var wind_speed = res.current.wind_kph;
+var wind_dir = res.current.wind_dir;
+var humidity = res.current.humidity;
+var visibility = res.current.vis_km;
+var uv = res.current.uv;
+var lat = res.location.lat;
+var lng = res.location.lon;
+long = lng;
+latitude = lat;
+var daydata = res.forecast;
+let daytemp = new Array();
+for (var i = 0; i < 3; i++) { // console.log(daydata.forecastday[i].day.avgtemp_c)
+  daytemp.push(daydata.forecastday[i].day.avgtemp_c) } console.log(daytemp) var
+  sunrise=daydata.forecastday[0].astro.sunrise; var sunset=daydata.forecastday[0].astro.sunset; var
+  rain=daydata.forecastday[0].day.daily_will_it_rain; var time=new Date(); var daynum=time.getDay(); var
+  date=time.getDate(); var monthnum=time.getMonth(); var year=time.getFullYear(); var day=dayOfWeek[daynum]; var
+  month=monthOfYear[monthnum]; var weathercond=daydata.forecastday[0].day.condition.text; var lastDay=Math.round((temp +
+  daytemp[1] + daytemp[2]) / 3); var todayDate=day + ", " + date + " " + month + " " + year; //console.log(todayDate);
+  // console.log(sunrise,sunset) //console.log(temp, cond, wind_speed, wind_dir, rain, humidity, visibility, uv);
+  document.getElementById("date").innerHTML=todayDate; document.getElementById("today").innerHTML=temp;
+  document.getElementById("weather").innerHTML=weathercond;
+  document.getElementById("windspeedright").innerHTML=wind_speed + "km/h" ;
+  document.getElementById("humidityright").innerHTML=humidity + "%" ;
+  document.getElementById("precipitation").innerHTML=rain + "%" ;
+  document.getElementById("day").innerHTML=Math.round(temp)
+  + '<span class="unitx"><span class="cel"><sup>&#8451;</sup></span></span>' ;
+  document.getElementById("day1").innerHTML=Math.round(daytemp[1])
+  + '<span class="unitx"><span class="cel"><sup>&#8451;</sup></span></span>' ;
+  document.getElementById("day2").innerHTML=Math.round(daytemp[2])
+  + '<span class="unitx"><span class="cel"><sup>&#8451;</sup></span></span>' ;
+  document.getElementById("day3").innerHTML=lastDay
+  + '<span class="unitx"><span class="cel"><sup>&#8451;</sup></span></span>' ;
+  document.getElementById("daytwo").innerHTML=dayOfWeek[(daynum + 2)%7];
+  document.getElementById("daythree").innerHTML=dayOfWeek[(daynum + 3)%7];
+  document.getElementById("uv-index").innerHTML=uv; var perct=uv * 10; //console.log("percentage: "+perct)
+        document.getElementById(" bar").style.width=perct + "%" ; if (uv <=3) {
+  document.getElementById("uv-desc").innerHTML=uvmap[0] } else if (uv <=7) {
+  document.getElementById("uv-desc").innerHTML=uvmap[1] } else { document.getElementById("uv-desc").innerHTML=uvmap[2] }
+  document.getElementById("sunrise").innerHTML=sunrise; document.getElementById("sunset").innerHTML=sunset;
+  document.getElementById("wind-speed").innerHTML=wind_speed; document.getElementById("wind-dir").innerHTML=wind_dir;
+  //Visibility document.getElementById("vis-val").innerHTML=visibility; if (visibility <=2) {
+  document.getElementById("vis-status").innerHTML="Poor" ; } else if (visibility <=9) {
+  document.getElementById("vis-status").innerHTML="Moderate" ; } else if (visibility <=19) {
+  document.getElementById("vis-status").innerHTML="Good" ; } else if (visibility <=39) {
+  document.getElementById("vis-status").innerHTML="Very Good" ; } else {
+  document.getElementById("vis-status").innerHTML="Excellent" ; } //Humidity console.log(humidity)
+  document.getElementById("humidity").innerHTML=humidity; if (humidity <=20) {
+  document.getElementById('humidity-status').innerHTML="Very Dry" ; } else if (humidity <=30) {
+  document.getElementById('humidity-status').innerHTML="Dry" ; } else if (humidity <=45) {
+  document.getElementById('humidity-status').innerHTML="Moderate" ; } else if (humidity <=60) {
+  document.getElementById('humidity-status').innerHTML="Humid" ; } else {
+  document.getElementById('humidity-status').innerHTML="Very Humid" } } //AirQuality Index api Call const aqi=new
+  XMLHttpRequest(); const urlaqi="https://api.waqi.info/feed/" + `${city}`
+  + "/?token=46b6b9160865cef800dde9b691d76cf2dea5cd40" ; aqi.open("GET", urlaqi); aqi.send(); aqi.onload=(e)=> {
+  var resaqi = JSON.parse(aqi.responseText);
+  var aqi_val = resaqi.data.aqi;
+  // console.log(resaqi)
+  console.log(aqi_val);
+
+  document.getElementById('aqi-val').innerHTML = aqi_val;
+  if (aqi_val < 50) { document.getElementById('aqi-status').innerHTML="Good" ; } else if (aqi_val < 150) {
+    document.getElementById('aqi-status').innerHTML="Moderate" ; } else if (aqi_val < 200) {
+    document.getElementById('aqi-status').innerHTML="Unhealthy" ; } else if (aqi_val < 500) {
+    document.getElementById('aqi-status').innerHTML="Very Unhealthy" ; } else {
+    document.getElementById('aqi-status').innerHTML="Hazardous" ; } } document.getElementById("city").innerHTML=city;
+    document.getElementById("country").innerHTML=dict[city].country; } getValues(); function locationpage2(city){ const
+    resText=new XMLHttpRequest(); const
+    urlweather='https://api.weatherapi.com/v1/forecast.json?key=b237bbd52a554e65b4b62837202010&q=' + `${city}`;
+    resText.open("GET", urlweather); resText.send(); resText.onload=(e)=>{
+    var resp = JSON.parse(resText.responseText);
+    var temp = resp.current.temp_c;
+    var cond = resp.current.condition.text;
+    document.getElementById(city).innerHTML = temp;
+    document.getElementById(`${city}cond`).innerHTML = cond;
+    //console.log(city + cond)
+    }
+    }
+
+    var arr = ["Delhi", "London", "Paris", "New York", "Mumbai", "Kolkata"]
+    arr.forEach(locationpage2);
+
+    document.getElementById("location").onclick = () =>{
+    document.getElementById("innerconsole").style.display = "none";
+    document.getElementById("search").style.display = "block";
+    document.getElementById("map").style.display = "none";
+
+    }
+
+    document.getElementById("dashboard").onclick = () =>{
+    document.getElementById("innerconsole").style.display = "block";
+    document.getElementById("search").style.display = "none";
+    document.getElementById("map").style.display = "none";
+    }
+
+    document.getElementById("Map").onclick = () =>{
+    document.getElementById("innerconsole").style.display = "none";
+    document.getElementById("search").style.display = "none";
+    document.getElementById("map").style.display = "block";
+    }
+
+    var cards = ["card1","card2","card3","card4","card5","card6"]
+
+    cards.forEach(change);
+
+    function change(item,index){
+    document.getElementById(item).onclick = () => {
+    document.getElementById("innerconsole").style.display = "block";
+    document.getElementById("search").style.display = "none";
+
+    getValues(arr[index]);
+    }
+    }
+
+    const users = [
+    {
+    "id": 0,
+    "name": "Kartikeya Agarwal",
+    "username": "Kartikeya72001",
+    "email": "kartikeya72001@gmail.com",
+    "address": {
+    "street": "Secotr 13",
+    "suite": "A-3/701",
+    "city": "New Delhi",
+    "zipcode": "110085",
+    "geo": {
+    "lat": "28.6139",
+    "lng": "77.2090"
+    }
+    },
+    "phone": "9718502020",
+    "website": "kartikeya72001.github.io",
+    "company": {
+    "name": " ",
+    "catchPhrase": "",
+    "bs": "Web Development"
+    }
+    },
+    {
+    "id": 1,
+    "name": "Leanne Graham",
+    "username": "Bret",
+    "email": "Sincere@april.biz",
+    "address": {
+    "street": "Kulas Light",
+    "suite": "Apt. 556",
+    "city": "Gwenborough",
+    "zipcode": "92998-3874",
+    "geo": {
+    "lat": "-37.3159",
+    "lng": "81.1496"
+    }
+    },
+    "phone": "1-770-736-8031 x56442",
+    "website": "hildegard.org",
+    "company": {
+    "name": "Romaguera-Crona",
+    "catchPhrase": "Multi-layered client-server neural-net",
+    "bs": "harness real-time e-markets"
+    }
+    },
+    {
+    "id": 2,
+    "name": "Ervin Howell",
+    "username": "Antonette",
+    "email": "Shanna@melissa.tv",
+    "address": {
+    "street": "Victor Plains",
+    "suite": "Suite 879",
+    "city": "Wisokyburgh",
+    "zipcode": "90566-7771",
+    "geo": {
+    "lat": "-43.9509",
+    "lng": "-34.4618"
+    }
+    },
+    "phone": "010-692-6593 x09125",
+    "website": "anastasia.net",
+    "company": {
+    "name": "Deckow-Crist",
+    "catchPhrase": "Proactive didactic contingency",
+    "bs": "synergize scalable supply-chains"
+    }
+    },
+    {
+    "id": 3,
+    "name": "Clementine Bauch",
+    "username": "Samantha",
+    "email": "Nathan@yesenia.net",
+    "address": {
+    "street": "Douglas Extension",
+    "suite": "Suite 847",
+    "city": "McKenziehaven",
+    "zipcode": "59590-4157",
+    "geo": {
+    "lat": "-68.6102",
+    "lng": "-47.0653"
+    }
+    },
+    "phone": "1-463-123-4447",
+    "website": "ramiro.info",
+    "company": {
+    "name": "Romaguera-Jacobson",
+    "catchPhrase": "Face to face bifurcated interface",
+    "bs": "e-enable strategic applications"
+    }
+    },
+    {
+    "id": 4,
+    "name": "Patricia Lebsack",
+    "username": "Karianne",
+    "email": "Julianne.OConner@kory.org",
+    "address": {
+    "street": "Hoeger Mall",
+    "suite": "Apt. 692",
+    "city": "South Elvis",
+    "zipcode": "53919-4257",
+    "geo": {
+    "lat": "29.4572",
+    "lng": "-164.2990"
+    }
+    },
+    "phone": "493-170-9623 x156",
+    "website": "kale.biz",
+    "company": {
+    "name": "Robel-Corkery",
+    "catchPhrase": "Multi-tiered zero tolerance productivity",
+    "bs": "transition cutting-edge web services"
+    }
+    },
+    {
+    "id": 5,
+    "name": "Chelsey Dietrich",
+    "username": "Kamren",
+    "email": "Lucio_Hettinger@annie.ca",
+    "address": {
+    "street": "Skiles Walks",
+    "suite": "Suite 351",
+    "city": "Roscoeview",
+    "zipcode": "33263",
+    "geo": {
+    "lat": "-31.8129",
+    "lng": "62.5342"
+    }
+    },
+    "phone": "(254)954-1289",
+    "website": "demarco.info",
+    "company": {
+    "name": "Keebler LLC",
+    "catchPhrase": "User-centric fault-tolerant solution",
+    "bs": "revolutionize end-to-end systems"
+    }
+    },
+    {
+    "id": 6,
+    "name": "Mrs. Dennis Schulist",
+    "username": "Leopoldo_Corkery",
+    "email": "Karley_Dach@jasper.info",
+    "address": {
+    "street": "Norberto Crossing",
+    "suite": "Apt. 950",
+    "city": "South Christy",
+    "zipcode": "23505-1337",
+    "geo": {
+    "lat": "-71.4197",
+    "lng": "71.7478"
+    }
+    },
+    "phone": "1-477-935-8478 x6430",
+    "website": "ola.org",
+    "company": {
+    "name": "Considine-Lockman",
+    "catchPhrase": "Synchronised bottom-line interface",
+    "bs": "e-enable innovative applications"
+    }
+    },
+    {
+    "id": 7,
+    "name": "Kurtis Weissnat",
+    "username": "Elwyn.Skiles",
+    "email": "Telly.Hoeger@billy.biz",
+    "address": {
+    "street": "Rex Trail",
+    "suite": "Suite 280",
+    "city": "Howemouth",
+    "zipcode": "58804-1099",
+    "geo": {
+    "lat": "24.8918",
+    "lng": "21.8984"
+    }
+    },
+    "phone": "210.067.6132",
+    "website": "elvis.io",
+    "company": {
+    "name": "Johns Group",
+    "catchPhrase": "Configurable multimedia task-force",
+    "bs": "generate enterprise e-tailers"
+    }
+    },
+    {
+    "id": 8,
+    "name": "Nicholas Runolfsdottir V",
+    "username": "Maxime_Nienow",
+    "email": "Sherwood@rosamond.me",
+    "address": {
+    "street": "Ellsworth Summit",
+    "suite": "Suite 729",
+    "city": "Aliyaview",
+    "zipcode": "45169",
+    "geo": {
+    "lat": "-14.3990",
+    "lng": "-120.7677"
+    }
+    },
+    "phone": "586.493.6943 x140",
+    "website": "jacynthe.com",
+    "company": {
+    "name": "Abernathy Group",
+    "catchPhrase": "Implemented secondary concept",
+    "bs": "e-enable extensible e-tailers"
+    }
+    },
+    {
+    "id": 9,
+    "name": "Glenna Reichert",
+    "username": "Delphine",
+    "email": "Chaim_McDermott@dana.io",
+    "address": {
+    "street": "Dayna Park",
+    "suite": "Suite 449",
+    "city": "Bartholomebury",
+    "zipcode": "76495-3109",
+    "geo": {
+    "lat": "24.6463",
+    "lng": "-168.8889"
+    }
+    },
+    "phone": "(775)976-6794 x41206",
+    "website": "conrad.com",
+    "company": {
+    "name": "Yost and Sons",
+    "catchPhrase": "Switchable contextually-based project",
+    "bs": "aggregate real-time technologies"
+    }
+    },
+    {
+    "id": 10,
+    "name": "Clementina DuBuque",
+    "username": "Moriah.Stanton",
+    "email": "Rey.Padberg@karina.biz",
+    "address": {
+    "street": "Kattie Turnpike",
+    "suite": "Suite 198",
+    "city": "Lebsackbury",
+    "zipcode": "31428-2261",
+    "geo": {
+    "lat": "-38.2386",
+    "lng": "57.2232"
+    }
+    },
+    "phone": "024-648-3804",
+    "website": "ambrose.net",
+    "company": {
+    "name": "Hoeger LLC",
+    "catchPhrase": "Centralized empowering task-force",
+    "bs": "target end-to-end models"
+    }
+    }
+    ]
+
+    const conSearch = document.querySelector('.con-search')
+    function handleRemove() {
+    conSearch.querySelector('input').value = ''
+    conSearch.classList.add('notValue')
+    }
+    function handleFocus(evt) {
+    if (evt.target.value) {
+    conSearch.classList.add('focus')
+    }
+    }
+    function handleBlur() {
+    conSearch.classList.remove('focus')
+    }
+
+    function handleSearch(evt) {
+    const value = evt.target.value
+    const newUsers = users.filter((user) => {
+    delete user.address
+    delete user.company
+    delete user.phone
+    delete user.id
+    delete user.username
+    const string = JSON.stringify(user).toLowerCase()
+    if (string.indexOf(value.toLowerCase()) !== -1) {
+    return user
+    }
+    })
+    renderResults(newUsers, value)
+    }
+    function Capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    function renderResults(results, value) {
+    const conResults = document.querySelector('.con-results')
+    conResults.innerHTML = ''
+
+    if (!value) {
+    conSearch.classList.remove('focus')
+    conSearch.classList.add('notValue')
+    return
+    }
+    conSearch.classList.remove('notValue')
+    conSearch.classList.add('focus')
+    results.forEach((result) => {
+    const resultElement = document.createElement('div')
+    resultElement.className = 'result'
+    const title = document.createElement('h5')
+    const text = document.createElement('p')
+    const web = document.createElement('div')
+    web.className = 'web'
+    const capitalize = Capitalize(result.name)
+    title.innerHTML = capitalize.replace(value, `<b>${value}</b>`)
+    text.innerHTML = result.email.toLowerCase().replace(value, `<b>${value}</b>`)
+    web.innerHTML = result.website.toLowerCase().replace(value, `<b>${value}</b>`)
+    resultElement.appendChild(title)
+    resultElement.appendChild(text)
+    resultElement.appendChild(web)
+    resultElement.classList.add('hidden')
+    conResults.appendChild(resultElement)
+    setTimeout(() => {
+    resultElement.classList.remove('hidden')
+    }, 20);
+    })
+    }
+    // Initialize and add the map
+    function initMap() {
+    // The location of Uluru
+    const uluru = { lat: latitude, lng: long };
+    // The map, centered at Uluru
+    const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 4,
+    center: uluru,
+    });
+    // The marker, positioned at Uluru
+    const marker = new google.maps.Marker({
+    position: uluru,
+    map: map,
+    });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    body {
+    background-color: #E5E8FF !important;
+    margin: 0;
+    font-family: "Lato", sans-serif;
+    color: #333866 !important;
+    outline:none;
+    }
+    .container{
+    margin: 4rem 0;
+    background-color: white;
+    border-radius: 1rem;
+    height: 45rem;
+    }
+
+    .highlight{
+    background-color: #F1F3FF;
+    border-radius: 1rem;
+    height: 94%;
+    }
+    .alignment1{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    }
+
+    .alignment2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    }
+    .card{
+    border-radius: 1rem !important;
+    }
+    .card:hover{
+    box-shadow: 0px 10px 20px 0px rgba(0,0,0,.05) !important;
+
+    }
+    ::-webkit-scrollbar {
+    width: 5px;
+    }
+    ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 3px grey;
+    border-radius: 2px;
+    }
+    ::-webkit-scrollbar-thumb {
+    background: #333866;
+    border-radius: 2px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+    width: 10px;
+    background: #FFBD50;
+    }
+    ::-webkit-scrollbar:hover{
+    width: 12px;
+    }
+
+    .speed{
+    font-size: 2.5rem;
+    }
+
+    .speedx{
+    font-size: 1rem;
+    }
+
+    .unit{
+    font-size:1.5rem;
+    margin-left: 0.2rem
+    }
+    .unitx{
+    font-size:1rem;
+    margin-left: 0.2rem
+    }
+    a{
+    text-decoration: none !important;
+    }
+
+    .location {
+    color:#333866;
+    font-weight: bold;
+    }
+
+    .country-name {
+    color:#333866;
+    font-weight: bold;
+    font-size:18px;
+    }
+
+    .day-date {
+    color:#adb1cc;
+    font-weight: bold;
+    font-size:13px;
+    }
+
+    .today {
+    color:#333866;
+    font-size:30px;
+    }
+
+    .temper {
+    margin-top:1rem;
+    margin-left:-7rem;
+    font-size: 2.5rem;
+    font-weight:900;
+    color:#333866;
+
+    }
+
+    .cel {
+    position: relative;
+    top:0.6rem;
+    margin-top:1rem;
+    font-size: 1.5rem;
+    color:#333866;
+    }
+
+    .celcius{
+    position: relative;
+    top:0.5rem;
+    margin-top:1rem;
+    font-size: 2rem;
+    color:#333866;
+    }
+
+    .cardx{
+    border: solid #F1F3FF !important;
+    }
+    .time{
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-size: 0.9rem;
+    }
+    .nav{
+    font-size: 1.5rem;
+    color: #333866;
+    font-family: 'Domine', serif;
+    margin: 3rem 0 2rem 3rem;
+
+    }
+    .nav:hover{
+    cursor: pointer;
+    color:orange;
+    }
+    .ico{
+    position: relative;
+    top: 0.3rem;
+    color: #FFBD50;
+    margin: 0 1rem 0 0;
+    }
+    .active{
+    color: #A2ACFF;
+    }
+
+    .con-search {
+    position: relative;
+    width: 90%;
+    left: 1.4rem;
+    }
+    .focus .content-results {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, 0);
+    }
+    .con-input {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    }
+    .con-input i {
+    position: absolute;
+    right: 15px;
+    font-size: 1.5rem;
+    transition: all .25s ease;
+    opacity: .5;
+    }
+    .notValue .con-input i.bx-search {
+    display: block;
+    }
+    .con-input i.bx-search {
+    display: none;
+    }
+    .notValue .con-input i.bx-x {
+    display: none;
+    }
+    .con-input i.bx-x {
+    display: block;
+    cursor: pointer;
+    }
+
+    .con-input input {
+    outline: none;
+    width: 100%;
+    padding: 15px 20px;
+    box-sizing: border-box;
+    border: 0px;
+    border-radius: 20px;
+    transition: all .25s ease;
+    }
+    .con-input input:focus {
+    transform: translate(0, -6px);
+    box-shadow: 0px 10px 20px 0px rgba(0,0,0,.05);
+    }
+    .con-input input:focus ~ i {
+    transform: translate(0, -6px);
+    opacity: 1;
+    }
+    .content-results {
+    position: absolute;
+    width: 100%;
+    background: #fff;
+    margin-top: 10px;
+    border-radius: 25px;
+    box-shadow: 0px 10px 20px 0px rgba(0,0,0,.05);
+    transform: translate(0, -10px);
+    transition: all .25s ease;
+    opacity: 0;
+    z-index: 10;
+    visibility: hidden;
+    padding-right: 10px;
+    overflow: hidden;
+    }
+    .con-results {
+    width: 100%;
+    overflow: auto;
+    max-height: 300px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    }
+    .con-results:empty {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    }
+    .not-results {
+    text-align: center;
+    padding: 15px;
+    font-size: .9rem;
+    opacity: .7;
+    display: none;
+    }
+    .con-search:not(.notValue) .con-results:empty ~ .not-results {
+    display: block;
+    }
+    .con-results .result {
+    padding: 15px;
+    margin: 5px 0px;
+    list-style: none;
+    transition: all .25s ease;
+    position: relative;
+    cursor: pointer;
+    width: calc(100% - 10px);
+    margin-left: 10px;
+    border-radius: 20px;
+    }
+    .con-results .result:hover {
+    background: #f4f7f8;
+    }
+    .con-results .result p {
+    font-size: .9rem;
+    color: rgba(var(--color), .6);
+    }
+    .con-results .result b {
+    background: rgba(var(--color), .1);
+    text-decoration: underline;
+    color: rgba(var(--color), 1);
+    border-radius: 2px;
+    }
+    .web {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    font-size: .8rem;
+    color: rgba(var(--color), .5);
+    padding: 20px;
+    }
+    .hidden {
+    opacity: 0;
+    margin-top: -15px;
+    }
+    .con-results::-webkit-scrollbar {
+    width: 5px;
+    }
+    .con-results::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #000;
+    }
+    #map {
+    height: 100%;
+    width: 100%;
+    }
+
+    .anim-icon {
+    position: relative;
+    display: inline-block;
+    width: 12em;
+    height: 10em;
+    font-size: 0.7em;
+    }
+
+    .sunny {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    margin: -1.25em;
+    background: rgb(248, 193, 13);
+    border-radius: 50%;
+    box-shadow: 0 0 0 0.375em rgb(248, 193, 13);
+    animation: spin 12s infinite linear;
+    }
+    .rays {
+    position: absolute;
+    top: -2em;
+    left: 50%;
+    display: block;
+    width: 0.375em;
+    height: 1.125em;
+    margin-left: -0.1875em;
+    background: rgb(248, 193, 13);
+    border-radius: 0.25em;
+    box-shadow: 0 5.375em rgb(248, 193, 13);
+    }
+    .rays:before,
+    .rays:after {
+    content: '';
+    position: absolute;
+    top: 0em;
+    left: 0em;
+    display: block;
+    width: 0.375em;
+    height: 1.125em;
+    transform: rotate(60deg);
+    transform-origin: 50% 3.25em;
+    background: rgb(248, 193, 13);
+    border-radius: 0.25em;
+    box-shadow: 0 5.375em rgb(248, 193, 13);
+    }
+    .rays:before {
+    transform: rotate(120deg);
+    }
+
+    .cloud {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    width: 3.6875em;
+    height: 3.6875em;
+    margin: -1.84375em;
+    background: white;
+    border-radius: 50%;
+    box-shadow:
+    -2.1875em 0.6875em 0 -0.6875em white,
+    2.0625em 0.9375em 0 -0.9375em white,
+    0 0 0 0.375em rgb(15, 124, 212),
+    -2.1875em 0.6875em 0 -0.3125em rgb(15, 124, 212),
+    2.0625em 0.9375em 0 -0.5625em rgb(15, 124, 212);
+    }
+    .cloud:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -0.5em;
+    display: block;
+    width: 4.5625em;
+    height: 1em;
+    background: white;
+    box-shadow: 0 0.4375em 0 -0.0625em rgb(15, 124, 212);
+    }
+    .cloud:nth-child(2) {
+    z-index: 0;
+    background: #fff;
+    box-shadow:
+    -2.1875em 0.6875em 0 -0.6875em #fff,
+    2.0625em 0.9375em 0 -0.9375em #fff,
+    0 0 0 0.375em rgb(15, 124, 212),
+    -2.1875em 0.6875em 0 -0.3125em rgb(15, 124, 212),
+    2.0625em 0.9375em 0 -0.5625em rgb(15, 124, 212);
+    opacity: 0.3;
+    transform: scale(0.5) translate(6em, -3em);
+    animation: cloud 4s linear infinite;
+    }
+    .cloud:nth-child(2):after { background: #fff; }
+
+    .cloud + .sun {
+    margin: -2em 1em;
+    }
+
+    .rain,
+    .lightning,
+    .snow {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    width: 3.75em;
+    height: 3.75em;
+    margin: 2.4em 0 10em -2em;
+    background: white;
+    }
+
+    .rain:after {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    width: 1.125em;
+    height: 1.125em;
+    margin: -1em 0 0 -0.25em;
+    background: rgb(4, 171, 212);
+    border-radius: 100% 0 60% 50% / 60% 0 100% 50%;
+    box-shadow:
+    0.625em 0.875em 0 -0.125em rgba(255,255,255,0.2),
+    -0.875em 1.125em 0 -0.125em rgba(255,255,255,0.2),
+    -1.375em -0.125em 0 rgba(255,255,255,0.2);
+    transform: rotate(-28deg);
+    animation: rain 3s linear infinite;
+    }
+
+    .bolt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -0.25em 0 0 -0.125em;
+    color: blue;
+    opacity: 0.3;
+    animation: lightning 2s linear infinite;
+    }
+    .bolt:nth-child(2) {
+    width: 0.5em;
+    height: 0.25em;
+    margin: -1.75em 0 0 -1.875em;
+    transform: translate(2.5em, 2.25em);
+    opacity: 0.2;
+    animation: lightning 1.5s linear infinite;
+    }
+    .bolt:before,
+    .bolt:after {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    margin: -1.625em 0 0 -1.0125em;
+    border-top: 1.25em solid transparent;
+    border-right: 0.75em solid;
+    border-bottom: 0.75em solid;
+    border-left: 0.5em solid transparent;
+    transform: skewX(-10deg);
+    }
+    .bolt:after {
+    margin: -0.25em 0 0 -0.25em;
+    border-top: 0.75em solid;
+    border-right: 0.5em solid transparent;
+    border-bottom: 1.25em solid transparent;
+    border-left: 0.75em solid;
+    transform: skewX(-10deg);
+    }
+    .bolt:nth-child(2):before {
+    margin: -0.75em 0 0 -0.5em;
+    border-top: 0.625em solid transparent;
+    border-right: 0.375em solid;
+    border-bottom: 0.375em solid;
+    border-left: 0.25em solid transparent;
+    }
+    .bolt:nth-child(2):after {
+    margin: -0.125em 0 0 -0.125em;
+    border-top: 0.375em solid;
+    border-right: 0.25em solid transparent;
+    border-bottom: 0.625em solid transparent;
+    border-left: 0.375em solid;
+    }
+
+    .flake:before,
+    .flake:after {
+    content: '\2744';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -1.025em 0 0 -1.0125em;
+    color: black;
+    list-height: 1em;
+    opacity: 0.2;
+    animation: spin 8s linear infinite reverse;
+    }
+    .flake:after {
+    margin: 0.125em 0 0 -1em;
+    font-size: 1.5em;
+    opacity: 0.4;
+    animation: spin 14s linear infinite;
+    }
+    .flake:nth-child(2):before {
+    margin: -0.5em 0 0 0.25em;
+    font-size: 1.25em;
+    opacity: 0.2;
+    animation: spin 10s linear infinite;
+    }
+    .flake:nth-child(2):after {
+    margin: 0.375em 0 0 0.125em;
+    font-size: 2em;
+    opacity: 0.4;
+    animation: spin 16s linear infinite reverse;
+    }
+
+    @keyframes rain {
+    0% {
+    background: rgb(4, 171, 212);
+    box-shadow:
+    0.625em 0.875em 0 -0.125em rgba(255,255,255,0.2),
+    -0.875em 1.125em 0 -0.125em rgba(255,255,255,0.2),
+    -1.375em -0.125em 0 rgb(4, 171, 212);
+    }
+    25% {
+    box-shadow:
+    0.625em 0.875em 0 -0.125em rgba(255,255,255,0.2),
+    -0.875em 1.125em 0 -0.125em rgb(4, 171, 212),
+    -1.375em -0.125em 0 rgba(255,255,255,0.2);
+    }
+    50% {
+    background: rgba(255,255,255,0.3);
+    box-shadow:
+    0.625em 0.875em 0 -0.125em rgb(4, 171, 212),
+    -0.875em 1.125em 0 -0.125em rgba(255,255,255,0.2),
+    -1.375em -0.125em 0 rgba(255,255,255,0.2);
+    }
+    100% {
+    box-shadow:
+    0.625em 0.875em 0 -0.125em rgba(255,255,255,0.2),
+    -0.875em 1.125em 0 -0.125em rgba(255,255,255,0.2),
+    -1.375em -0.125em 0 rgb(4, 171, 212);
+    }
+    }
+
+    @keyframes lightning {
+    45% {
+    color: #fff;
+    background: #fff;
+    opacity: 0.2;
+    }
+    50% {
+    color: #0cf;
+    background: #0cf;
+    opacity: 1;
+    }
+    55% {
+    color: #fff;
+    background: #fff;
+    opacity: 0.2;
+    }
+    }
+
+    @keyframes cloud {
+    0% { opacity: 0; }
+    50% { opacity: 0.3; }
+    100% {
+    opacity: 0;
+    transform: scale(0.5) translate(-200%, -3em);
+    }
+    }
+
+
+
+
+
+
+
+
+
+
+    <!-- START OF SUN ICON-->
+    <div class="anim-icon" style="font-size: 0.4em;margin-left:-2em;" id="sunny-icon">
+      <div class="sunny">
+        <div class="rays"></div>
+      </div>
+    </div>
+    <!-- END OF SUN ICON-->
+
+    <!--START OF MIST ICON-->
+    <div class="anim-icon" style="font-size: 0.4em;margin-left:-2em;" id="misty-icon">
+      <div class="cloud"></div>
+      <div class="fog"></div>
+    </div>
+    <!--END OF MIST ICON-->
+
+    <!--START OF SNOW ICON-->
+    <div class="anim-icon" style="font-size: 0.4em;margin-left:-2em;" id="snowy-icon">
+      <div class="cloud"></div>
+      <div class="snow">
+        <div class="flake"></div>
+        <div class="flake"></div>
+      </div>
+    </div>
+    <!--END OF SNOW ICON-->
+
+    <!--START OF RAIN ICON-->
+    <div class="anim-icon" style="font-size: 0.4em;margin-left:-2em;" id="rainy-icon">
+      <div class="cloud"></div>
+      <div class="rain"></div>
+    </div>
+    <!--END OF RAIN ICON-->
+
+    <!--START OF CLOUDY ICON-->
+    <div class="anim-icon" style="font-size: 0.4em;margin-left:-2em;" id="cloudy-icon">
+      <div class="cloud"></div>
+      <div class="cloud"></div>
+    </div>
+    <!--END OF CLOUDY ICON-->
+
+    <!--START OF THUNDERSTORM ICON-->
+    <div class="anim-icon" style="font-size: 0.4em;margin-left:-2em;" id="thunderstorm-icon">
+      <div class="cloud"></div>
+      <div class="lightning">
+        <div class="bolt"></div>
+        <div class="bolt"></div>
+      </div>
+    </div>
+    <!--END OF THUNDERSTORM ICON-->
+
+    <!--START OF SUN SHOWER ICON-->
+    <div class="anim-icon" style="font-size: 0.4em;margin-left:-2em;" id="sunCloud-icon">
+      <div class="cloud"></div>
+      <div class="sunny">
+        <div class="rays"></div>
+      </div>
+      <div class="rain"></div>
+    </div>
+    <!--END OF SUN SHOWER ICON-->
+    <script>
+      function weatherIconsChange() {
+
+        var ids = ["day-today-icon", "day-tomorrow-icon", "day-2-icon", "day-3-icon"];
+        for (var i = 1; i < dayWeatherCond.length; i++) {
+          var weatherCond = dayWeatherCond[i];
+          var ic = document.getElementById(ids[i]);
+          if (thunderstorm.includes(weatherCond)) {
+            ic.innerHTML = '<div class="cloud"></div>' +
+              '<div class="lightning">' +
+                '<div class="bolt"></div>' +
+                '<div class="bolt"></div>' +
+              '</div>';
+          }
+
+          else if (rainy.includes(weatherCond)) {
+            ic.innerHTML = '<div class="cloud"></div>'
+              +'<div class="rain"></div>';
+          }
+
+          else if (snowy.includes(weatherCond)) {
+            ic.innerHTML = '<div class="cloud"></div>'+
+              '<div class="snow">'+
+                '<div class="flake"></div>' +
+                '<div class="flake"></div>' +
+              '</div>';
+          }
+
+          else if (sunCloud.includes(weatherCond)) {
+            ic.innerHTML = '<div class="cloud"></div>' +
+              '<div class="sunny">' +
+                '<div class="rays"></div>' +
+              '</div>' +
+              '<div class="rain"></div>';
+          }
+
+          else if (misty.includes(weatherCond)) {
+            ic.innerHTML = '<div class="cloud"></div>'
+              + '<div class="fog"></div>';
+          }
+
+          else if (cloudy.includes(weatherCond)) {
+            ic.innerHTML = '<div class="cloud"></div>' +
+              '<div class="cloud"></div>'
+          }
+
+          else {
+            ic.innerHTML = '<div class="sunny">'+
+                '<div class="rays"></div>'+
+              '</div>'
+          }
+        }
+      }
+
+    </script>
+    function weatherIconsChange(){
+
+    var ids = ["day-today-icon","day-tomorrow-icon","day-2-icon","day-3-icon"];
+    for(var i = 1; i < dayWeatherCond.length;i++) { var weatherCond=dayWeatherCond[i]; if
+      (thunderstorm.includes(weatherCond)) { document. } else if (rainy.includes(weatherCond)) { } else if
+      (snowy.includes(weatherCond)) { } else if (sunCloud.includes(weatherCond)) { } else if
+      (misty.includes(weatherCond)) { } else if (cloudy.includes(weatherCond)) { } else { } } }

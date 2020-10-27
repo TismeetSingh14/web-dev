@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="http://schemas.sun.com/point/venetianblind"
+    xmlns="http://schemas.sun.com/point/venetianblind"
+    elementFormDefault="qualified">
+        <xsd:element name='books'>
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name='book' type='BookType' minOccurs='1' maxOccurs='unbounded' />
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+  <xsd:complexType name='BookType'>
+    <xsd:sequence>
+      <xsd:element name='title' type='titleType'/>
+      <xsd:element name='edition' type='xsd:unsignedByte' minOccurs='0' maxOccurs="1"/>
+      <xsd:element name='author' type='authorType'/>
+      <xsd:element name='publishedDate' type='publishedType'/>
+      <xsd:element name='type' minOccurs='0' type='typeType'/>
+      <xsd:element name='price' type='priceType'/>
+    </xsd:sequence>
+    <xsd:attribute name='isbn' use='required'/>
+  </xsd:complexType>
+  <xsd:complexType name="titleType">
+     <xsd:simpleContent>
+          <xsd:extension base="xsd:string">
+               <xsd:attribute name="type" use="required">
+                    <xsd:simpleType>
+                         <xsd:restriction base="xsd:string">
+                              <xsd:enumeration value="P"/>
+                              <xsd:enumeration value="H"/>
+                         </xsd:restriction>
+                    </xsd:simpleType>
+               </xsd:attribute>
+          </xsd:extension>
+     </xsd:simpleContent>
+   </xsd:complexType>
+  <xsd:complexType name="authorType">
+       <xsd:sequence>
+            <xsd:element name="first" type="xsd:string"/>
+            <xsd:element name="middle" type="middleType"/>
+            <xsd:element name="last" type="xsd:string"/>
+       </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="middleType">
+      <xsd:restriction base="xsd:string">
+        <xsd:minLength value="0"/>
+        <xsd:maxLength value="1"/>
+      </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="publishedType">
+       <xsd:sequence>
+            <xsd:element name="month" type="monthType"/>
+            <xsd:element name="day" type="dayType"/>
+           <xsd:element name="year" type="gYear"/>
+       </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="monthType">
+    <xsd:restriction base="xsd:unsignedByte">
+      <xsd:minInclusive value="1"/>
+      <xsd:maxInclusive value="12"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="dayType">
+    <xsd:restriction base="xsd:unsignedLong">
+      <xsd:minInclusive value="1"/>
+      <xsd:maxInclusive value="365"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="gYear">
+      <xsd:restriction base="xsd:unsignedLong">
+        <xsd:minInclusive value="0"/>
+        <xsd:maxInclusive value="2020"/>
+      </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeType">
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="nonfiction"/>
+        <xsd:enumeration value="fiction"/>
+      </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="priceType">
+    <xsd:restriction base="xsd:decimal">
+      <xsd:totalDigits value="5"/>
+      <xsd:fractionDigits value="2"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

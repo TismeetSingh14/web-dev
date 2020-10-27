@@ -19,9 +19,11 @@ function counter() {
             count += 1;
         }
     }
-
-
-    ele.value = "";
-    pres.innerHTML = "The number of vowels in '" + txt + "' :"
+    
+    pres.innerHTML = "Number of vowels are:"
     ans.innerHTML = count;
+}
+
+function reset() {
+    ele.value = '';
 }

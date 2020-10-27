@@ -1,0 +1,113 @@
+*{
+    margin:0;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+body{
+    background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSwBM3XqZCH1I-tzwhpovi4VkO3zOehKCWAVw&usqp=CAU');
+    color:#e2df1a;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    width: 500px;
+    color:#d4e020;
+    margin:3% auto;
+    font-size: 3rem;
+    font-family:'Arial Narrow Bold', sans-serif;
+}
+
+.content{
+    width: 580px;
+    margin: 0 auto;
+    background-color:#0869A6;
+    padding: 3%;
+    padding-left: 6%;
+}
+
+.secondTitle{
+    text-align:left;
+    margin: 2% 0;
+    font-weight: 100;
+    font-size: 1.2rem;
+}
+
+.form{
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.formLine{
+    display: inline-flex;
+    padding: 5px 0px;
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float:right;
+    margin-right: 100px;
+}
+
+input, select{
+    width: 140px;
+    margin-left: 10px;
+}
+
+table{
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+thead{
+    background-color:#6b7fa8;
+    line-height: 30px;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+tr:nth-child(even){background-color: #043286}
+tr:nth-child(odd){background-color: #324f83}
+  
+th {
+    background-color: #5b5ef1;
+}
+    
+
+button {
+    background-color:#fccb44;
+    border: none;
+    font-weight: bold;
+    border-radius: 9px;
+    color: rgb(61, 61, 61);
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px#9b8d0e;
+    outline: none;
+    margin-left:10px;
+}
+
+button:active {
+    position: relative;
+    box-shadow: 0 0px #3c6294;
+    top: 3px;
+    box-shadow: 0 0;
+}
+
+a{
+    text-decoration: underline;
+    cursor: pointer;
+}

@@ -21,7 +21,7 @@ body {
 }
 
 .container {
-    background-color: rgba(61, 61, 61, 0.473);
+    background-color: rgba(61, 61, 61, 0.644);
     min-width: 700px;
     min-height:600px;
     overflow: auto;
@@ -37,7 +37,7 @@ body {
     width:600px;
     padding: 10px 20px 10px 20px;
     outline: none;
-    border: 1px solid rgb(255, 47, 47);
+    border: 1px solid rgb(95, 95, 95);
     border-radius: 30px;
     color: white;
     background-color: black;
@@ -45,43 +45,31 @@ body {
     margin-top: 50px;
 }
 
-/* .answers {
-    background-color: rgba(72, 89, 243, 0.295);
-    min-width: 600px;
-    min-height:400px;
-    margin-bottom: 20px;
-    display: flex;
-    overflow: auto;
-    flex-wrap:wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-} */
-
 #header {
     font-family: "Piedra";
     font-size: 60px;
-    color: rgb(255, 153, 0);
+    color: #E03DDB;
     margin-bottom: 0;
 }
 
 #premise {
     font-family: "Libre+Baskerville";
-    font-size: 40px;
-    color: rgb(0, 228, 57);
+    font-size: 60px;
+    font-weight:1000;
+    color: #F74F9C;
     margin-bottom:3px;
 }
 
 #answer {
     font-family: 'Courier New', Courier, monospace;
     font-size: 130px;
-    color: yellow;
+    color: #5F44FC;
     margin-top:3px;
     font-family: "Pacifico";
 }
 
 button {
-    background-color: rgb(169, 93, 231);
+    background-color:#CD44FC;
     border: none;
     font-weight: bold;
     border-radius: 9px;
@@ -89,12 +77,12 @@ button {
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 23px;
     margin-top: 30px;
     margin-bottom: 20px;
-    box-shadow: 0 3px rgb(132, 0, 240);
+    box-shadow: 0 3px#CD44FC;
     outline: none;
+    margin-left:20px;
 }
 
 button:active {

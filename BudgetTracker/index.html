@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600" rel="stylesheet" type="text/css">
+  <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="style.css">
+  <title>Budget Buddy</title>
+</head>
+
+<body>
+  <div class="top">
+    <div class="budget">
+      <div class="budgetHead">
+        Available Budget in <span class="budgetHeadmonth"></span>:
+      </div>
+
+      <div class="budgetValue">-0</div>
+
+      <div class="budgetIncome clearfix">
+        <div class="budgetIncomeText">Income</div>
+        <div class="right">
+          <div class="budgetIncomeValue">+0</div>
+          <div class="budgetIncomePercentage">&nbsp;</div>
+        </div>
+      </div>
+
+      <div class="budgetExpenses clearfix">
+        <div class="budgetExpensesText">Expenses</div>
+        <div class="right clearfix">
+          <div class="budgetExpensesValue">-0</div>
+          <div class="budgetExpensesPercentage">0%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="add">
+      <div class="addContainer">
+        <select class="addType">
+          <option value="inc" selected>+</option>
+          <option value="exp">-</option>
+        </select>
+        <input type="text" class="addDescription" placeholder="Add description">
+        <input type="number" class="addValue" placeholder="Value">
+        <button class="addBtn"><i class="ion-ios-checkmark-outline"></i></button>
+      </div>
+    </div>
+
+    <div class="container clearfix">
+      <div class="income">
+        <h2 class="incomeTitle">Income</h2>
+
+        <div class="incomeList">
+        </div>
+      </div>
+      <div class="expenses">
+        <h2 class="expensesTitle">Expenses</h2>
+        <div class="expensesList">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

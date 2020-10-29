@@ -14,6 +14,8 @@
 body{
     background-color: #222;
     font-family: 'Gilroy';
+    background-image: url('https://image.freepik.com/free-vector/neon-lights-wallpaper_52683-46462.jpg');
+    background-size: cover;
 }
 
 *{
@@ -26,16 +28,6 @@ body{
     user-select: none;
 }
 
-/* input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-} */
-
-/* Firefox */
-/* input[type=number] {
-  -moz-appearance: textfield;
-} */
-
 .budget-container{
     position: absolute;
     width: 660px;
@@ -43,7 +35,7 @@ body{
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    background-color: #04247aa4;
+    background-color: #04237a;
 }
 
 .budget-header .balance{
@@ -231,7 +223,7 @@ body{
 
 .budget-dashboard #expense .input input#expense-title-input{
     height: 40px;
-    width : 300px;
+    width : 200px;
     padding-left: 10px;
     font-size: 1.2em;
     font-family: 'Gilroy';
@@ -243,7 +235,19 @@ body{
 
 .budget-dashboard #expense .input input#expense-amount-input{
     height: 40px;
-    width : 200px;
+    width : 150px;
+    padding-left: 10px;
+    font-size: 1.2em;
+    font-family: 'Gilroy';
+    margin: 5px;
+    margin-left: -10px;
+    border-radius: 0 10px 10px 0;
+    border: none;
+}
+
+.budget-dashboard #expense .input input#expense-date-input{
+    height: 40px;
+    width : 180px;
     padding-left: 10px;
     font-size: 1.2em;
     font-family: 'Gilroy';
@@ -257,7 +261,7 @@ body{
     width: 40px;
     height: 40px;
     cursor: pointer;
-    margin-left:4rem;
+    margin-left:2rem;
 }
 
 .budget-dashboard #expense ul{
@@ -334,7 +338,7 @@ body{
 
 .budget-dashboard #income .input input#income-title-input{
     height: 40px;
-    width : 300px;
+    width : 200px;
     padding-left: 10px;
     font-size: 1.2em;
     font-family: 'Gilroy';
@@ -346,7 +350,19 @@ body{
 
 .budget-dashboard #income .input input#income-amount-input{
     height: 40px;
-    width : 200px;
+    width : 150px;
+    padding-left: 10px;
+    font-size: 1.2em;
+    font-family: 'Gilroy';
+    margin: 5px;
+    margin-left: -10px;
+    border-radius: 0 10px 10px 0;
+    border: none;
+}
+
+.budget-dashboard #income .input input#income-date-input{
+    height: 40px;
+    width : 180px;
     padding-left: 10px;
     font-size: 1.2em;
     font-family: 'Gilroy';
@@ -360,7 +376,7 @@ body{
     width: 40px;
     height: 40px;
     cursor: pointer;
-    margin-left:4rem;
+    margin-left:2rem;
 }
 
 .budget-dashboard #income ul{

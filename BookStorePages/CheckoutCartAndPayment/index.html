@@ -1,192 +1,24 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Snippet - BBBootstrap</title>
+    <title>Checkout</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-        body {
-            color: rgb(0, 0, 0);
-            overflow-x: hidden;
-            height: 100%;
-            background-image:linear-gradient(to right,rgb(241, 234, 202),rgb(243, 241, 243));
-            background-repeat: no-repeat;
-            font-size:21px;
-            font-family: "Poppins";
-            font-weight:500;
-        }
-
-        .plus-minus {
-            position: relative;
-        }
-
-        .plus {
-            position: absolute;
-            top: -4px;
-            left: 2px;
-            cursor: pointer;
-        }
-
-        .minus {
-            position: absolute;
-            top: 8px;
-            left: 5px;
-            cursor: pointer
-        }
-
-        .vsm-text:hover {
-            color: #FF5252;
-        }
-
-        .book,
-        .book-img {
-            width: 120px;
-            height: 180px;
-            border-radius: 5px;
-        }
-
-        .book {
-            margin: 20px 15px 5px 15px
-        }
-
-        .border-top {
-            border-top: 1px solid #EEEEEE !important;
-            margin-top: 20px;
-            padding-top: 15px
-        }
-
-        .card {
-            margin: 40px 0px;
-            padding: 40px 50px;
-            border-radius: 20px;
-            border: none;
-            box-shadow: 1px 5px 10px 1px rgba(0, 0, 0, 0.2);
-            color:#000
-        }
-
-        input,
-        textarea {
-            background-color: #F3E5F5;
-            padding: 8px 15px 8px 15px;
-            width: 100%;
-            border-radius: 5px !important;
-            box-sizing: border-box;
-            border: 1px solid #F3E5F5;
-            font-size: 15px !important;
-            color: #000 !important;
-            font-weight: 300
-        }
-
-        input:focus,
-        textarea:focus {
-            -moz-box-shadow: none !important;
-            -webkit-box-shadow: none !important;
-            box-shadow: none !important;
-            border: 1px solid #9FA8DA;
-            outline-width: 0;
-            font-weight: 400
-        }
-
-        button:focus {
-            -moz-box-shadow: none !important;
-            -webkit-box-shadow: none !important;
-            box-shadow: none !important;
-            outline-width: 0
-        }
-
-        .mob-text {
-            font-size:20px;
-            font-weight: 1000;
-        }
-
-        .pay {
-            width: 80px;
-            height: 40px;
-            border-radius: 5px;
-            border: 1px solid #673AB7;
-            margin: 10px 20px 10px 0px;
-            cursor: pointer;
-            box-shadow: 1px 5px 10px 1px rgba(0, 0, 0, 0.2)
-        }
-
-        .gray {
-            -webkit-filter: grayscale(100%);
-            -moz-filter: grayscale(100%);
-            -o-filter: grayscale(100%);
-            -ms-filter: grayscale(100%);
-            filter: grayscale(100%);
-            color: #E0E0E0
-        }
-
-        .gray .pay {
-            box-shadow: none
-        }
-
-        #tax {
-            border-top: 1px lightgray solid;
-            margin-top: 10px;
-            padding-top: 10px
-        }
-
-        .btn-blue {
-            border: none;
-            border-radius: 10px;
-            background-color: #673AB7;
-            color: #fff;
-            padding: 8px 15px;
-            margin: 20px 0px;
-            cursor: pointer
-        }
-
-        .btn-blue:hover {
-            background-color: #311B92;
-            color: #fff
-        }
-
-        #checkout {
-            float: left
-        }
-
-        #check-amt {
-            float: right
-        }
-
-        @media screen and (max-width: 768px) {
-
-            .book,
-            .book-img {
-                width: 100px;
-                height: 150px
-            }
-
-            .card {
-                padding-left: 15px;
-                padding-right: 15px
-            }
-
-            .mob-text {
-                font-size: 13px
-            }
-
-            .pad-left {
-                padding-left: 20px
-            }
-        }
-    </style>
+    <link rel = "stylesheet" href = "style.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
+    <div class = "cont">
     <div class="container px-4 py-5 mx-auto">
         <div class="row d-flex justify-content-center">
             <div class="col-5">
-                <h2 class="heading">Shopping Bag</h2>
+                <h2 class="heading">Shopping Cart</h2>
             </div>
             <div class="col-7">
                 <div class="row text-right">
@@ -207,25 +39,25 @@
                 <div class="row d-flex">
                     <div class="book"> <img src="https://i.imgur.com/2DsA49b.jpg" class="book-img"> </div>
                     <div class="my-auto flex-column d-flex pad-left">
-                        <h6 class="mob-text">Thinking, Fast and Slow</h6>
-                        <p class="mob-text">Daniel Kahneman</p>
+                        <h6 class="mob-text" style="font-size: 1.3rem;">Thinking, Fast and Slow</h6>
+                        <p class="mob-text" style="font-size: 1.3rem;">AJ Rowin</p>
                     </div>
                 </div>
             </div>
             <div class="my-auto col-7">
                 <div class="row text-right">
                     <div class="col-4">
-                        <p class="mob-text">Digital</p>
+                        <p class="mob-text" style="font-size: 1.3rem;">E-Book</p>
                     </div>
                     <div class="col-4">
                         <div class="row d-flex justify-content-end px-3">
-                            <p class="mb-0" id="cnt1">1</p>
-                            <div class="d-flex flex-column plus-minus"> <span class="vsm-text plus">+</span> <span
+                            <p class="mb-0" id="cnt1" style="font-size: 1.3rem;" >1</p>
+                            <div class="d-flex flex-column plus-minus" style="font-size: 1.3rem;"> <span class="vsm-text plus">+</span> <span
                                     class="vsm-text minus">-</span> </div>
                         </div>
                     </div>
                     <div class="col-4">
-                        <h6 class="mob-text">$9.99</h6>
+                        <h6 class="mob-text" style="font-size: 1.3rem;">$12.99</h6>
                     </div>
                 </div>
             </div>
@@ -235,25 +67,25 @@
                 <div class="row d-flex">
                     <div class="book"> <img src="https://i.imgur.com/Oj1iQUX.jpg" class="book-img"> </div>
                     <div class="my-auto flex-column d-flex pad-left">
-                        <h6 class="mob-text">Homo Deus: A Brief<br>History of Tomorrow</h6>
-                        <p class="mob-text">Yuval Noah Harari</p>
+                        <h6 class="mob-text" style="font-size: 1.3rem;">Homo Deus: A Brief<br>History of Tomorrow</h6>
+                        <p class="mob-text" style="font-size: 1.3rem;">Stephen Hawking</p>
                     </div>
                 </div>
             </div>
             <div class="my-auto col-7">
                 <div class="row text-right">
                     <div class="col-4">
-                        <p class="mob-text">Paperback</p>
+                        <p class="mob-text" style="font-size: 1.3rem;">Paperback</p>
                     </div>
                     <div class="col-4">
                         <div class="row d-flex justify-content-end px-3">
-                            <p class="mb-0" id="cnt2">1</p>
-                            <div class="d-flex flex-column plus-minus"> <span class="vsm-text plus">+</span> <span
+                            <p class="mb-0" id="cnt2" style="font-size: 1.3rem;">2</p>
+                            <div class="d-flex flex-column plus-minus" style="font-size: 1.3rem;"> <span class="vsm-text plus">+</span> <span
                                     class="vsm-text minus">-</span> </div>
                         </div>
                     </div>
                     <div class="col-4">
-                        <h6 class="mob-text">$13.50</h6>
+                        <h6 class="mob-text" style="font-size: 1.3rem;">$13.50</h6>
                     </div>
                 </div>
             </div>
@@ -310,7 +142,6 @@
             </div>
         </div>
     </div>
-
+    </div>
 </body>
-
 </html>

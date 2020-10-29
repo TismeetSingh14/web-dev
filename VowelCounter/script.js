@@ -1,4 +1,3 @@
-// const cont = document.getElementsByClassName('answers');
 const ele = document.getElementById('input');
 const ans = document.getElementById('answer');
 const pres = document.getElementById('premise');

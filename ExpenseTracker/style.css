@@ -71,7 +71,7 @@ thead{
 }
 
 th, td {
-    text-align: left;
+    text-align: center;
     padding: 8px;
   }
   
@@ -105,9 +105,4 @@ button:active {
     box-shadow: 0 0px #3c6294;
     top: 3px;
     box-shadow: 0 0;
-}
-
-a{
-    text-decoration: underline;
-    cursor: pointer;
 }

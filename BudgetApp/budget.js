@@ -1,6 +1,3 @@
-/* www.youtube.com/CodeExplained */
-
-// SELECT ELEMENTS
 const balanceEl = document.querySelector(".balance .value");
 const incomeTotalEl = document.querySelector(".income-total");
 const outcomeTotalEl = document.querySelector(".outcome-total");
@@ -11,30 +8,27 @@ const incomeList = document.querySelector("#income .list");
 const expenseList = document.querySelector("#expense .list");
 const allList = document.querySelector("#all .list");
 
-// SELECT BTNS
 const expenseBtn = document.querySelector(".tab1");
 const incomeBtn = document.querySelector(".tab2");
 const allBtn = document.querySelector(".tab3");
 
-// INPUT BTS
 const addExpense = document.querySelector(".add-expense");
 const expenseTitle = document.getElementById("expense-title-input");
 const expenseAmount = document.getElementById("expense-amount-input");
+const expenseDate = document.getElementById("expense-date-input");
 
 const addIncome = document.querySelector(".add-income");
 const incomeTitle = document.getElementById("income-title-input");
 const incomeAmount = document.getElementById("income-amount-input");
+const incomeDate = document.getElementById("income-date-input");
 
-// VARIABLES
 let ENTRY_LIST;
 let balance = 0, income = 0, outcome = 0;
 const DELETE = "delete", EDIT = "edit";
 
-// LOOK IF THERE IS SAVED DATA IN LOCALSTORAGE
 ENTRY_LIST = JSON.parse(localStorage.getItem("entry_list")) || [];
 updateUI();
 
-// EVENT LISTENERS
 expenseBtn.addEventListener("click", function(){
     show(expenseEl);
     hide( [incomeEl, allEl] );
@@ -55,46 +49,38 @@ allBtn.addEventListener("click", function(){
 })
 
 addExpense.addEventListener("click", function(){
-    // IF ONE OF THE INPUTS IS EMPTY => EXIT
     if(!expenseTitle.value || !expenseAmount.value ) return;
 
-    var d = new Date()
-    // SAVE THE ENTRY TO ENTRY_LIST
     let expense = {
         type : "expense",
         title : expenseTitle.value,
         amount : parseInt(expenseAmount.value),
-        date : d.toDateString()
+        date : expenseDate.value
     }
     ENTRY_LIST.push(expense);
 
     updateUI();
-    clearInput( [expenseTitle, expenseAmount] )
+    clearInput( [expenseTitle, expenseAmount, expenseDate] )
 })
 
 addIncome.addEventListener("click", function(){
-    // IF ONE OF THE INPUTS IS EMPTY => EXIT
     if(!incomeTitle.value || !incomeAmount.value ) return;
 
-    var d = new Date()
-    // SAVE THE ENTRY TO ENTRY_LIST
     let income = {
         type : "income",
         title : incomeTitle.value,
         amount : parseInt(incomeAmount.value),
-        date : d.toDateString()
+        date : incomeDate.value
     }
     ENTRY_LIST.push(income);
 
     updateUI();
-    clearInput( [incomeTitle, incomeAmount] )
+    clearInput( [incomeTitle, incomeAmount, incomeDate] )
 })
 
 incomeList.addEventListener("click", deleteOrEdit);
 expenseList.addEventListener("click", deleteOrEdit);
 allList.addEventListener("click", deleteOrEdit);
-
-// HELPERS
 
 function deleteOrEdit(event){
     const targetBtn = event.target;
@@ -121,9 +107,11 @@ function editEntry(entry){
     if(ENTRY.type == "income"){
         incomeAmount.value = ENTRY.amount;
         incomeTitle.value = ENTRY.title;
+        incomeDate.value = ENTRY.date;
     }else if(ENTRY.type == "expense"){
         expenseAmount.value = ENTRY.amount;
         expenseTitle.value = ENTRY.title;
+        expenseDate.value = ENTRY.date;
     }
 
     deleteEntry(entry);
@@ -134,10 +122,7 @@ function updateUI(){
     outcome = calculateTotal("expense", ENTRY_LIST);
     balance = Math.abs(calculateBalance(income, outcome));
 
-    // DETERMINE SIGN OF BALANCE
     let sign = (income >= outcome) ? "$" : "-$";
-
-    // UPDATE UI
     balanceEl.innerHTML = `<small>${sign}</small>${balance}`;
     outcomeTotalEl.innerHTML = `<small>$</small>${outcome}`;
     incomeTotalEl.innerHTML = `<small>$</small>${income}`;

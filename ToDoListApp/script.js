@@ -35,7 +35,8 @@ clear.addEventListener("click",function(){
     location.reload();
 });
 
-dateElement.innerHTML = today.toLocaleDateString("en-US",options);
+const myDate = today.toLocaleDateString("en-US",options);
+dateElement.innerHTML = "<b>" + `${myDate}` + "</b>";
 
 function addToDo(todo,id,done,trash){
     if(trash) {
